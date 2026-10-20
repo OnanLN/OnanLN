@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>七分之路 · 学术类雅思 7.0 私教讲义</title>
+<meta name="description" content="为 26 岁、大二英语六级 429 分的学习者设计的学术类雅思 7.0 学习计划与课程。">
+<style>
+  :root {
+    --bg: #efe6d6;
+    --bg-deep: #e5d9c4;
+    --paper: #fbf7f0;
+    --ink: #1c1914;
+    --muted: #5f584c;
+    --faint: #8a8172;
+    --line: #e0d3bf;
+    --line-strong: #c9b89a;
+    --red: #8f2d2a;
+    --red-soft: #f8ebe4;
+    --pine: #1d3b34;
+    --pine-soft: #e5f0eb;
+    --gold: #8a6528;
+    --gold-soft: #f6edd9;
+    --blue: #243e68;
+    --blue-soft: #e7eef8;
+    --shadow: 0 18px 50px rgba(48, 34, 16, 0.08);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", serif;
+    --sans: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+    --mono: "IBM Plex Mono", "Source Code Pro", "Sarasa Mono SC", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 500px at 10% -10%, rgba(143, 45, 42, 0.08), transparent 50%),
+      radial-gradient(900px 400px at 100% 0%, rgba(29, 59, 52, 0.08), transparent 45%),
+      var(--bg);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  a { color: var(--blue); text-underline-offset: 3px; }
+  ::selection { background: #ead7a4; }
+  .skip {
+    position: absolute; left: 16px; top: -40px; background: var(--ink); color: white;
+    padding: 8px 12px; z-index: 20;
+  }
+  .skip:focus { top: 12px; }
+  .topbar {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 12px 28px;
+    background: rgba(251, 247, 240, 0.92);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(10px);
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--serif); }
+  .seal {
+    width: 36px; height: 36px; border: 1.5px solid var(--red); color: var(--red);
+    display: grid; place-items: center; font-weight: 700; letter-spacing: 0;
+    transform: rotate(-6deg);
+  }
+  .brand small { display: block; font-family: var(--sans); color: var(--faint); letter-spacing: 0.14em; font-size: 11px; }
+  .progress-dock { min-width: min(420px, 46vw); }
+  .progress-dock p { margin: 0 0 6px; font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; }
+  .bar { height: 6px; background: #e7dccb; border-radius: 99px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--pine), #3f7a64); }
+  .layout { display: grid; grid-template-columns: 270px 1fr; gap: 8px; align-items: start; }
+  nav.toc {
+    position: sticky; top: 74px; max-height: calc(100vh - 90px); overflow: auto;
+    padding: 22px 18px 40px 28px;
+  }
+  nav.toc ol { list-style: none; margin: 0; padding: 0; }
+  nav.toc a {
+    display: block; color: var(--muted); text-decoration: none;
+    padding: 6px 0; font-size: 14px; border-left: 2px solid transparent; padding-left: 10px;
+  }
+  nav.toc a:hover, nav.toc a:focus { color: var(--ink); border-left-color: var(--red); }
+  main { padding: 12px 40px 80px 12px; max-width: 1080px; }
+  .hero {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    padding: 48px 52px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero:before {
+    content: "7.0";
+    position: absolute; right: 36px; top: 8px;
+    font-family: var(--serif); font-size: 92px; line-height: 1;
+    color: rgba(28, 25, 20, 0.06); letter-spacing: -0.04em;
+    pointer-events: none;
+  }
+  section.chapter, .week { scroll-margin-top: 84px; }
+  .kicker { letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); font-size: 12px; margin: 0 0 12px; }
+  h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 6vw, 68px); line-height: 1.05; margin: 0 0 12px; letter-spacing: -0.03em; }
+  .lede { font-size: 19px; max-width: 46rem; color: var(--muted); margin-top: 0; }
+  .profile {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 28px; position: relative;
+  }
+  .profile article, .stat, .card, .callout, .week, .calc, .exercise {
+    background: var(--paper); border: 1px solid var(--line);
+  }
+  .profile article { padding: 14px 16px; }
+  .profile span { display: block; color: var(--faint); font-size: 12px; letter-spacing: 0.08em; }
+  .profile strong { font-family: var(--serif); font-size: 22px; font-weight: 600; }
+  section.chapter { margin-top: 42px; }
+  h2 {
+    font-family: var(--serif); font-size: 34px; font-weight: 600; letter-spacing: -0.02em;
+    margin: 0 0 8px; line-height: 1.2;
+  }
+  h2 .idx { color: var(--red); font-size: 0.7em; margin-right: 8px; }
+  h3 { font-family: var(--serif); font-size: 24px; font-weight: 600; margin: 1.4em 0 0.4em; }
+  h4 { margin: 0 0 6px; font-size: 16px; }
+  .sub { color: var(--muted); margin-top: 0; }
+  p { margin: 0.7em 0; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .card, .callout, .calc, .exercise { padding: 16px 18px; }
+  .card h3, .callout h3 { margin-top: 0; }
+  .callout.teacher { background: var(--gold-soft); border-color: #e4d2a8; }
+  .callout.warn { background: var(--red-soft); border-color: #efd0c6; }
+  .callout.good { background: var(--pine-soft); border-color: #c9e0d6; }
+  .callout.note { background: var(--blue-soft); border-color: #d3deee; }
+    table { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 15px; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; vertical-align: top; text-align: left; }
+  th { background: #f3ecdf; font-weight: 650; }
+  caption { text-align: left; font-size: 13px; color: var(--muted); margin-bottom: 6px; caption-side: bottom; }
+  .bars { display: grid; gap: 10px; }
+  .track { display: grid; grid-template-columns: 72px 1fr 70px; gap: 8px; align-items: center; font-size: 14px; }
+  .track .rail { height: 10px; background: #efe4d2; position: relative; }
+  .track .rail i { position: absolute; top: 0; bottom: 0; background: var(--pine); }
+  .track .rail b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--red); }
+  .phase-row { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+  .phase-row strong { font-family: var(--serif); }
+  ul, ol { padding-left: 1.2em; }
+  li { margin: 0.25em 0; }
+    .week { margin: 14px 0; padding: 0; border-left: 3px solid var(--pine); }
+  .week > header { display: flex; gap: 14px; align-items: baseline; padding: 14px 16px 0; }
+  .week-no { font-family: var(--serif); font-size: 28px; color: var(--red); min-width: 48px; }
+  .week header p { margin: 0; color: var(--muted); font-size: 14px; }
+  .week .body { padding: 6px 16px 16px; }
+  .checkline { display: flex; gap: 8px; align-items: center; font-size: 14px; color: var(--pine); margin-top: 8px; }
+  .tag { display: inline-block; border: 1px solid var(--line-strong); padding: 0 6px; font-size: 12px; letter-spacing: 0.04em; color: var(--gold); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; }
+  .pair div { padding: 10px 12px; }
+  .pair .before { background: #f8efe8; }
+  .pair .after { background: #eaf3ee; }
+  .pair small { display: block; letter-spacing: 0.12em; font-size: 11px; color: var(--faint); }
+  details.fold { background: var(--paper); border: 1px solid var(--line); padding: 10px 14px; margin: 10px 0; }
+  details.fold summary { cursor: pointer; font-weight: 650; }
+  .tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 18px; }
+  button, .btn {
+    background: var(--ink); color: #fbf7f0; border: 0; padding: 8px 12px; font: inherit; cursor: pointer;
+  }
+  button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+  label.field { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
+  input, select { font: inherit; padding: 8px 10px; border: 1px solid var(--line-strong); background: white; color: var(--ink); }
+  .result { font-family: var(--serif); font-size: 22px; margin: 8px 0; }
+  footer.colophon { margin-top: 48px; color: var(--faint); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; }
+  .hidden { display: none; }
+  @media (max-width: 980px) {
+    .layout { grid-template-columns: 1fr; }
+    nav.toc { position: relative; top: 0; max-height: none; display: flex; gap: 14px; overflow: auto; padding: 10px 16px; }
+    nav.toc ol { display: flex; gap: 12px; }
+    nav.toc a { white-space: nowrap; border-left: 0; border-bottom: 2px solid transparent; }
+    main { padding: 8px 14px 48px; }
+    .hero { padding: 28px 20px; }
+    .topbar { flex-wrap: wrap; }
+    .progress-dock { display: block; min-width: 0; flex: 1 1 180px; }
+    .hero:before { display: none; }
+    .profile, .grid-2, .grid-3, .grid-4, .pair { grid-template-columns: 1fr; }
+    section.chapter { overflow-x: auto; }
+  }
+  @media print {
+    .topbar, nav.toc, .tools, .checkline { display: none !important; }
+    body { background: white; }
+    .layout { display: block; }
+    main { max-width: none; padding: 0; }
+    .hero, .card, .week, .callout { box-shadow: none; break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">跳到正文</a>
+<header class="topbar">
+  <div class="brand">
+    <div class="seal" aria-hidden="true">七</div>
+    <div>七分之路<small>ACADEMIC IELTS HANDBOOK</small></div>
+  </div>
+  <div class="progress-dock" aria-live="polite">
+    <p><span>主课进度</span><span id="doneLabel">0 / 36 主课周</span></p>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="36" aria-valuenow="0" aria-label="三十六周主课完成进度"><span id="doneBar"></span></div>
+  </div>
+</header>
+<div class="layout">
+<nav class="toc" aria-label="目录">
+  <ol>
+    <li><a href="#how">使用说明</a></li>
+    <li><a href="#profile">起点判断</a></li>
+    <li><a href="#target">7.0 怎么构成</a></li>
+    <li><a href="#time">时间与路径</a></li>
+    <li><a href="#weekrhythm">一周怎么过</a></li>
+    <li><a href="#method">方法总纲</a></li>
+    <li><a href="#listening">听力课</a></li>
+    <li><a href="#reading">阅读课</a></li>
+    <li><a href="#writing">写作课</a></li>
+    <li><a href="#speaking">口语课</a></li>
+    <li><a href="#vocab">词汇与语法</a></li>
+    <li><a href="#pre">预科六周</a></li>
+    <li><a href="#weeks">三十六周主课</a></li>
+    <li><a href="#extend">延长模块</a></li>
+    <li><a href="#mock">模考规程</a></li>
+    <li><a href="#books">材料与工具</a></li>
+    <li><a href="#examday">报名与考试日</a></li>
+    <li><a href="#tools">分数计算器</a></li>
+    <li><a href="#appendix">附录练习</a></li>
+  </ol>
+</nav>
+<main id="content">
+  <header class="hero">
+    <p class="kicker">Private tutorial · Academic module</p>
+    <h1>七分之路</h1>
+    <p class="lede">一份写给 26 岁学习者的学术类雅思课程。起点是大二英语六级 429 分，目标是总分 7.0，并且单科不低于 6.5。这不是鼓励口号，是一份按小时、按周、按评分标准排好的私教讲义。</p>
+    <div class="profile">
+      <article><span>学员</span><strong>26 岁</strong></article>
+      <article><span>已有成绩</span><strong>六级 429</strong></article>
+      <article><span>目标</span><strong>学术类 7.0</strong></article>
+      <article><span>主课体量</span><strong>36 周 · 约 540 小时</strong></article>
+    </div>
+  </header>
+
+  <section class="chapter" id="how">
+    <h2><span class="idx">壹</span>先读这一页</h2>
+    <p class="sub">这份讲义默认你在职或有固定日间安排，每周能拿出大约 15 小时。若你能全天学习，后面有压缩路径。</p>
+    <div class="grid-2">
+      <article class="card">
+        <h3>建议的读法</h3>
+        <ol>
+          <li>今天只读「起点判断」「7.0 怎么构成」「一周怎么过」。</li>
+          <li>把第 1 周任务放进日历，日期可以整体顺延。示范日历按 2026 年 10 月 26 日周一开始。</li>
+          <li>做完第 1–2 周诊断后，用文末计算器决定：直接进主课，还是先上预科六周。</li>
+          <li>之后每次只展开当前这一周。勾选「本周完成」，进度会留在这台浏览器里。</li>
+          <li>方法章节是教材，不是鸡汤。听力、阅读、写作、口语四章在对应周之前要读过一遍，之后当工具书回查。</li>
+        </ol>
+      </article>
+      <article class="callout teacher">
+        <h3>教师约定</h3>
+        <p>我不会把六级 429 换算成一个虚假的雅思精确分数，官方没有这种换算。我也不会承诺「三个月必上 7」。对你的背景，负责任的规划是：先用真题测出四科，再按大约两个分数段、500 小时以上的有效训练来走。</p>
+        <p>有效训练指：限时做题、对照评分标准改写、开口录音、听写和错题归类。网课开着、单词划过去，不算。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="profile">
+    <h2><span class="idx">贰</span>你的起点，具体是什么意思</h2>
+    <p>英语六级满分 710，425 分为合格。429 分是压线通过，说明大二那次考试刚好站在合格线上面，几乎没有余量。六级考查听力、阅读、写作和翻译，不考查面对面口语。题型、语速、文本类型和评分方式都与雅思不同，所以这个分数只能用来判断「当时的公共英语基础薄」，不能用来填报雅思目标分。</p>
+    <div class="grid-3">
+      <article class="card">
+        <h3>它说明你有什么</h3>
+        <ul>
+          <li>大学英语课程你跟上过，字母系统、基础语法和常见话题并不是从零开始。</li>
+          <li>你做过限时的听力和阅读，知道标准化考试的压力。</li>
+          <li>写作曾经要在规定时间里成文，尽管六级写作和雅思写作不是同一件事。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>它说明你缺什么</h3>
+        <ul>
+          <li>合格线附近通常意味着学术词汇、长句准确度和阅读速度都不稳定。</li>
+          <li>六级听力的场景和语速，低于雅思 Section 3 和 Section 4。</li>
+          <li>没有口试成绩。口语往往是这一背景里最不可知、也最容易被高估的一科。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>年份造成的损耗</h3>
+        <p>按常规入学年龄，大二到 26 岁大约隔了五到七年。听力反应、口头流利度和拼写会先退，阅读底子退得慢一些。若这几年工作里几乎不用英语，请按「低于当年」来设计前两个月，而不是按「我过了六级」来设计。</p>
+      </article>
+    </div>
+    <h3>规划时使用的工作假设</h3>
+    <p>在第 1 周真题成绩出来之前，课程按下面的临时画像设计。它是教学假设，不是给你的判决。</p>
+    <table>
+      <thead><tr><th>项目</th><th>临时假设</th><th>依据</th></tr></thead>
+      <tbody>
+        <tr><td>总分</td><td>约 5.0，浮动 4.5–5.5</td><td>压线六级，且隔了数年</td></tr>
+        <tr><td>听力</td><td>4.5–5.5</td><td>反应速度和拼写最容易生疏</td></tr>
+        <tr><td>阅读</td><td>5.0–5.5</td><td>文字底子通常比口语保得久</td></tr>
+        <tr><td>写作</td><td>5.0 或以下</td><td>雅思写作看任务回应、论证和语法稳定性</td></tr>
+        <tr><td>口语</td><td>5.0 或以下</td><td>没有持续口语输出时，流利度下降最快</td></tr>
+      </tbody>
+      <caption>第 2 周结束时，用诊断成绩替换这张表。替换之前，不要买「保 7」的短期班来安慰自己。</caption>
+    </table>
+    <div class="callout good">
+      <h3>26 岁反而有的优势</h3>
+      <p>你有工作、搬家、学习新技能、和同事协作的真实经历。雅思口语 Part 2 和写作举例最怕空洞。十九岁的考生往往只能说校园；你可以讲一个具体的项目、一位上司、一次失败的自学、一座你工作过的城市。课程后半段会把这些经历做成「素材砖」，而不是让你背网红答案。</p>
+    </div>
+    <h3>这一背景最常见的五种失败</h3>
+    <ol>
+      <li><strong>只输入不输出。</strong>每天听两小时，开口和动笔每周不到两次。听力和阅读可以到 6.5，写作口语停在 5.5，总分过不了 6.5。</li>
+      <li><strong>背模板。</strong>With the development of society 一类开头，考官在前两句就能听出来。模板不能覆盖题目里的任务点，任务回应会被压在 6 分上下。</li>
+      <li><strong>用中文想好再翻译。</strong>句子会又长又歪，冠词和动词形态一起出错。7 分要的是直接用英文搭句子。</li>
+      <li><strong>材料永远做新的，错题不复盘。</strong>同一类同义替换可以错十次。没有错题分类，分数会在同一个地方反复撞墙。</li>
+      <li><strong>用疲劳硬补。</strong>工作日漏了两天，周日熬到半夜。听力这种科，睡眠差的时候水平会掉半个分数段。</li>
+    </ol>
+  </section>
+
+  <section class="chapter" id="target">
+    <h2><span class="idx">叁</span>7.0 不是四科都刚好 7</h2>
+    <p>总分是四科的平均数，再按官方规则取到最接近的半分或整分。平均分小数部分是 .25 时，向上进到下一个半分；是 .75 时，向上进到下一个整分。因此 6.75 的平均会变成总分 7.0。</p>
+    <table>
+      <thead><tr><th>组合</th><th>听力</th><th>阅读</th><th>写作</th><th>口语</th><th>平均</th><th>总分</th><th>评价</th></tr></thead>
+      <tbody>
+        <tr><td>本课程的目标组合</td><td>7.5</td><td>7.0</td><td>6.5</td><td>6.5</td><td>6.875</td><td>7.0</td><td>主目标。单科也不低于 6.5</td></tr>
+        <tr><td>更稳的组合</td><td>7.5</td><td>7.5</td><td>6.5</td><td>6.5</td><td>7.0</td><td>7.0</td><td>若学校卡写作 6.5、总分 7，这是安全垫</td></tr>
+        <tr><td>危险组合</td><td>8.0</td><td>7.5</td><td>6.0</td><td>6.0</td><td>6.875</td><td>7.0</td><td>总分够，但很多项目不接受写作或口语 6.0</td></tr>
+        <tr><td>四科拉平</td><td>7.0</td><td>7.0</td><td>7.0</td><td>7.0</td><td>7.0</td><td>7.0</td><td>理想，不是这条时间线的必达条件</td></tr>
+      </tbody>
+      <caption>报名前查清接收学校或签证类别的单科线。总体 7.0 且写作不低于 6.5，是这门课的设计标准。</caption>
+    </table>
+    <h3>听力和阅读：7 分大约是什么手感</h3>
+    <p>每套题的原始分换算都有轻微差别，以你手头那本剑桥真题书里附的换算表为准。下面只是多数学术类试卷上的常见区间，用来感受任务难度。</p>
+    <div class="grid-2">
+      <table>
+        <thead><tr><th>分数段</th><th>听力原始分 /40</th><th>学术阅读原始分 /40</th></tr></thead>
+        <tbody>
+          <tr><td>7.5</td><td>大约 32–34</td><td>大约 33–34</td></tr>
+          <tr><td>7.0</td><td>大约 30–31</td><td>大约 30–32</td></tr>
+          <tr><td>6.5</td><td>大约 26–29</td><td>大约 27–29</td></tr>
+          <tr><td>6.0</td><td>大约 23–25</td><td>大约 23–26</td></tr>
+          <tr><td>5.5</td><td>大约 18–22</td><td>大约 19–22</td></tr>
+          <tr><td>5.0</td><td>大约 16–17</td><td>大约 15–18</td></tr>
+        </tbody>
+      </table>
+      <article class="card">
+        <h3>对你意味着</h3>
+        <p>听力 7.5 大约是 40 题里对 33 题，只允许错 7 题左右，而且大小写、单复数、连字符都算。阅读 7.0 大约是错 8–10 题。这两科是你拉开总分的地方，因为它们可以靠方法和刷题稳定提高。</p>
+        <p>写作 6.5 和口语 6.5 则不是「再背 200 个词」就能稳定出现的。它们要求任务完成、展开、衔接、用词和语法同时像样。</p>
+      </article>
+    </div>
+    <h3>写作 6.5 与 7.0 的差别，用行为来描述</h3>
+    <p>官方有公开的分数段说明。下面是把它翻译成你改作文时能检查的行为，不是逐句照抄评分标准。</p>
+    <table>
+      <thead><tr><th></th><th>大约 6 分时常见的样子</th><th>6.5–7.0 开始出现的样子</th></tr></thead>
+      <tbody>
+        <tr><td>任务</td><td>能看出你懂题目，但有一部分只是碰到了，例子泛泛，立场中途发虚</td><td>题目里的每个任务都有回应；立场从头到尾一致；每个主要观点被解释过</td></tr>
+        <tr><td>结构</td><td>Firstly, Secondly, In conclusion 很整齐，段内却来回跳</td><td>分段清楚，连接手段不止连接词，还会用 this trend、such a policy 回指上文</td></tr>
+        <tr><td>用词</td><td>important, good, bad, more and more 反复出现，搭配不稳</td><td>一个话题里能准确用上几个搭配，偶有用词错误，但不妨碍意思</td></tr>
+        <tr><td>语法</td><td>简单句正确，复合句经常破损；冠词和单复数不稳定</td><td>复合句有一定数量是完整正确的；错误还在，但不再每句都有</td></tr>
+      </tbody>
+    </table>
+    <h3>口语 6.5 的可观察标准</h3>
+    <ul>
+      <li>Part 1 能答 20–40 秒，不是单词，也不是背出来的演讲。</li>
+      <li>Part 2 能说到 1 分 40 秒以上，中间有停顿，但停顿发生在意思的边界，不是卡在某一个单词上出不来。</li>
+      <li>Part 3 被追问「为什么、如果、相比过去」时，能换一种说法继续，而不是把 Part 2 的故事再讲一遍。</li>
+      <li>发音可以有中文口音，但词尾辅音、重音和意群让考官能轻松听懂。7 分不要求口音消失。</li>
+    </ul>
+    <div class="bars" aria-label="目标差距示意">
+      <div class="track"><span>听力</span><div class="rail"><i style="left:0;width:55%"></i><b style="left:83%"></b></div><span>→ 7.5</span></div>
+      <div class="track"><span>阅读</span><div class="rail"><i style="left:0;width:58%"></i><b style="left:78%"></b></div><span>→ 7.0</span></div>
+      <div class="track"><span>写作</span><div class="rail"><i style="left:0;width:45%"></i><b style="left:72%"></b></div><span>→ 6.5</span></div>
+      <div class="track"><span>口语</span><div class="rail"><i style="left:0;width:42%"></i><b style="left:72%"></b></div><span>→ 6.5</span></div>
+    </div>
+    <p class="sub">色条是临时假设的起点占比，红线是目标。诊断之后你会发现某一科的色条比图上长或短，以诊断为准。</p>
+  </section>
+
+  <section class="chapter" id="time">
+    <h2><span class="idx">肆</span>时间预算：三条路径，一条主路</h2>
+    <p>业内常用的粗略参照是：每提高大约 1 个分数段，需要上百小时有反馈的训练，个体差别很大。从大约 5.0 走到 7.0，按 500–700 小时安排是老实的。本课程主路是 36 周、每周 15 小时，约 540 小时。它假设第 2 周诊断落在 4.5–5.5。若更低或更高，改走旁边两条路，不要硬套日期。</p>
+    <div class="grid-3">
+      <article class="card">
+        <h3>主路 · 在职</h3>
+        <p>36 周，每周 15 小时。示范开始日是 2026-10-26，第 36 周是 2027-06-28 那一周，建议考试放在 2027 年 7 月上旬。2027 年 5 月中旬锁定考位。</p>
+      </article>
+      <article class="card">
+        <h3>预科 · 插入</h3>
+        <p>若诊断听力原始分低于 16、阅读低于 15，或写作口语明显说不成段，先上文中的预科 6 周，主课整体后移，考试改到 2027 年 9 月。不要跳过预科去硬听 Section 4。</p>
+      </article>
+      <article class="card">
+        <h3>全职压缩</h3>
+        <p>每周 25–28 小时时，可以把 36 周压到大约 22–24 周。压缩的是日历，不是小时数，更不是复盘。每天仍要睡觉。全职也不建议短于 5 个月去冲击 7.0。</p>
+      </article>
+    </div>
+    <h3>主路五段</h3>
+    <div class="phase-row"><strong>第 1–2 周</strong><div>诊断与重启。产出：四科基线、错误类型前五名、固定学习时段、一位外部监督人（朋友即可，负责每周日看你有没有交录音和作文）。</div></div>
+    <div class="phase-row"><strong>第 3–10 周</strong><div>语言系统返修。语音、基础句、冠词、时态、听力前两个部分、阅读定位与判断、写作只写引言和主体段。目标：听力阅读原始分摸到大约 23，写作能写对复合句。</div></div>
+    <div class="phase-row"><strong>第 11–22 周</strong><div>分科工艺。听力后两个部分、阅读全部题型、小作文全部图型、大作文四类问法、口语三部分。第 22 周中期模考。</div></div>
+    <div class="phase-row"><strong>第 23–30 周</strong><div>限时与准确度。把对的题做快，把 6 分作文里的错误压下去。目标组合开始成形：听力 7 附近，阅读 6.5–7，写作口语 6–6.5。</div></div>
+    <div class="phase-row"><strong>第 31–36 周</strong><div>六次模考与补洞。考前 72 小时不学新内容。若第 30 周写作或口语仍低于 6，转入延长模块，不建议抱着碰运气的心态去考。</div></div>
+    <div class="callout warn">
+      <h3>延长模块的触发线</h3>
+      <p>第 22 周如果听力原始分仍低于 23，或阅读低于 23：第 23–26 周减半写作新题，把时间退回听读方法。第 30 周如果写作、口语任一科自估仍在 5.5 及以下：不要报名最近的考位，进入延长八周，并至少找两次外部批改（老师、可靠的互换批改伙伴，或有评分经验的人）。自估连续三次偏高，是这门课里最贵的错误。</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="weekrhythm">
+    <h2><span class="idx">伍</span>一周怎么过</h2>
+    <p>时间固定比时长漂亮更重要。下面这张表是在职主路的默认周。主课放在你脑子还清醒的时候。若你早上更清醒，把晚间主课和早晨对调，碎片任务仍留在通勤里。</p>
+    <table>
+      <thead><tr><th>时段</th><th>时长</th><th>内容</th><th>不算完成的情况</th></tr></thead>
+      <tbody>
+        <tr><td>周一至周五 早晨</td><td>20 分钟</td><td>记忆卡片：只复习到期卡片。新卡每天不超过 15 张</td><td>一次性翻 200 个单词</td></tr>
+        <tr><td>周一至周五 午间</td><td>15 分钟</td><td>跟读 60–90 秒英音材料并录音，或听写 4 句</td><td>只听不张嘴</td></tr>
+        <tr><td>周一至周四 19:30–20:45</td><td>75 分钟</td><td>当天主课，见各周任务。中途不看消息</td><td>视频课开着做别的</td></tr>
+        <tr><td>周五 19:30–20:45</td><td>75 分钟</td><td>本周错题重做 + 语法/词汇产出</td><td>只把错题看懂，不重做</td></tr>
+        <tr><td>周六 9:00–12:00</td><td>3 小时</td><td>限时产出：写作，或听力阅读套题。含对答案，不含深复盘</td><td>超时仍做完还假装是限时成绩</td></tr>
+        <tr><td>周日 15:00–17:30</td><td>2.5 小时</td><td>口语录音、复盘周六套题、写下周三件最重要的事</td><td>模考后只看分数不看错因</td></tr>
+      </tbody>
+      <caption>合计约 15 小时。漏掉的工作日任务并入周六前 60 分钟，不要挤占睡眠。连续两周完不成 12 小时，就删掉加餐，保留听、读、写、说各一次，先把节奏救回来。</caption>
+    </table>
+    <div class="grid-2">
+      <article class="callout note">
+        <h3>四本账</h3>
+        <ul>
+          <li><strong>错题本：</strong>题目、我选了什么、原文依据、错误类型、一周后重做结果。</li>
+          <li><strong>语料本：</strong>从阅读和听力里摘的搭配，每条配原句。不要从词典孤立抄词。</li>
+          <li><strong>作文本：</strong>每篇只改一版。改的时候用不同颜色标：任务、衔接、用词、语法。</li>
+          <li><strong>口语砖：</strong>人物、地点、物件、经历、变化，各准备可重组的短素材，不准备整篇讲稿。</li>
+        </ul>
+      </article>
+      <article class="callout teacher">
+        <h3>周日 25 分钟复盘问句</h3>
+        <ol>
+          <li>本周四科各做了哪一次真正的产出？</li>
+          <li>哪一类错误出现了两次以上？</li>
+          <li>哪 10 个搭配我能在不看笔记的情况下造句？</li>
+          <li>下周我削减哪一项，以保证睡觉？</li>
+          <li>有没有把「认识」误当成「会用」？</li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="method">
+    <h2><span class="idx">陆</span>方法总纲</h2>
+    <h3>单词：记搭配，不记孤词</h3>
+    <p>7 分词汇不是词表长度，是搭配是否自然。要记 environmental degradation，不要只记 degradation 的中文。卡片正面写中文情景或挖空的英文原句，背面写搭配和整句。每天新卡不超过 15，复习不设上限。一个搭配要在 72 小时内被你写进一个句子，并被你说出口一次，才算从认识变成可用。</p>
+    <p>拼写单独练。听力和阅读填空错在拼写上，方法再好也到不了 7。每周五听写 20 个本周出现过的学术词：environment, government, proportion, approximately, opportunity, accommodation, colleague, recommend。这些词看起来眼熟，听写时最容易错。</p>
+    <h3>语法：先消灭会扣分的错误，再追求复杂</h3>
+    <p>中文母语者在 5 分到 6.5 分之间，最常见的不是虚拟语气，而是冠词、名词单复数、主谓一致、动词形态、介词搭配和逗号粘连。复杂句在这些错误还密集时，只会制造更多破句。课程前 10 周的语法顺序是固定的，不要自己改成「高级语法周」。顺序见词汇与语法一章。</p>
+    <h3>复盘比做题贵</h3>
+    <p>听力阅读的时间配比是 1:2。做 40 分钟，复盘 80 分钟。复盘不是看解析点头，而是分五步：</p>
+    <ol>
+      <li>裸判对错，先不看解释。</li>
+      <li>只重听或重读错题所在句，试着自己找到依据。</li>
+      <li>写下错误类型：没听见、听错干扰、同义替换不认识、定位到了但理解反了、拼写、字数超限、时间不够没做。</li>
+      <li>把那一句里的关键词抄进语料本。</li>
+      <li>隔四天重做错题，不看笔记。</li>
+    </ol>
+    <h3>输出的最低配比</h3>
+    <p>从第 3 周起，每一周必须有：至少 1 篇写作产出（全篇或教师指定的段落）、至少 3 次口语录音、至少 4 次听力或阅读的限时练习。缺任何一项，这一周即使单词记了很多，也不勾选完成。</p>
+  </section>
+
+  <section class="chapter" id="listening">
+    <h2><span class="idx">柒</span>听力课</h2>
+    <p>雅思听力约 30 分钟录音加 10 分钟誊写（纸笔考试）。电脑考试没有单独誊写时间，边听边输入。四个部分通常从生活对话走向学术讲座，难度递增。只允许听一遍的能力，要靠「听两遍的精听」养出来，但模考必须严格一遍。</p>
+    <div class="grid-2">
+      <article class="card">
+        <h3>Section 1 · 生活表格</h3>
+        <p>人名拼写、数字、日期、地址、价格。干扰方式经常是先说一个信息再改口。听到 but, actually, sorry, no, I mean 要准备修改答案。数字练习要听到能写：15 与 50、13 与 30、double 字母。日期同时接受 3 October 和 October 3 这类格式时，以题目要求为准，并保持全卷一致。</p>
+      </article>
+      <article class="card">
+        <h3>Section 2 · 场景独白</h3>
+        <p>地图、流程、匹配。地图先看图例和起点，用手指或光标跟着走。方向词要形成身体反应：go past, opposite, at the junction, on your left, the far corner。匹配题先划选项差异，往往是两个人或两类设施的特征被调换。</p>
+      </article>
+      <article class="card">
+        <h3>Section 3 · 师生讨论</h3>
+        <p>难点是「谁持有这个观点」和「态度是否后来改变了」。选项里的原词重复，常常是陷阱；正确项多半是同义说法。练习时在笔记上只写人名首字母和态度：A+, B-。不要试图把句子写全。</p>
+      </article>
+      <article class="card">
+        <h3>Section 4 · 学术讲座</h3>
+        <p>靠信号词分段：Turning to, Another reason, The final point, What I want to stress。空格前后的词会在录音里被替换，词性往往保持接近。答案通常是录音里的原词，不要自作聪明改成同义词，除非题目本身是选择题。</p>
+      </article>
+    </div>
+    <h3>每篇精听的标准动作</h3>
+    <ol>
+      <li>第一遍按考试做，记录答案。</li>
+      <li>对答案，标出错题，先不看原文。</li>
+      <li>只把错题前后 20 秒再听两遍，写下你听到的词。</li>
+      <li>打开原文，用笔标：答案词、它对应的题干同义、干扰句。</li>
+      <li>跟读含答案的那几句，模仿重音和意群，不求整篇。</li>
+    </ol>
+    <div class="callout teacher">
+      <h3>从 5 分听到 7.5 分，顺序不要反</h3>
+      <p>先把 Section 1 和 2 稳定到几乎全对，再主攻 3 和 4。很多人从讲座听起，基础拼写和干扰句没过关，后两个部分的方法也无处着落。7.5 的失分结构通常是：前两部错 1–2 个，后两部错 5–6 个。若你前两部还在错 6 个以上，后两部先少做。</p>
+    </div>
+    <h3>英音与语音重点</h3>
+    <p>国内考试听力以英音和其他国际口音混合出现，训练以英音为主，每周加一段其他口音即可。中文母语者优先处理这些听和说会一起崩的点：词尾辅音（went 不是 when）、/θ/ 与 /s/、/v/ 与 /w/、/l/ 与 /n/、词重音（eCONomy 与 ecoNOMic 不是同一个节奏）、功能词弱读（to, of, and, can）。跟读材料用 BBC 6 Minute English 或剑桥听力原文，每天 90 秒，比周末集中模仿两小时有用。</p>
+  </section>
+
+  <section class="chapter" id="reading">
+    <h2><span class="idx">捌</span>阅读课</h2>
+    <p>学术类阅读 60 分钟三篇文章，没有额外涂卡时间。字数大约每篇 700–900。7 分需要的不只是读得懂，而是在时间结束时仍有正确率。默认节奏先用 18 + 20 + 22 分钟，第三篇通常最难。若你诊断时第三篇几乎没做，前八周允许只精读两篇，把判断题做准，不要用「三篇都扫完但全靠猜」安慰自己。</p>
+    <h3>做题顺序</h3>
+    <ol>
+      <li>用 30 秒看标题、副标题、图和题目类型，判断文章结构。</li>
+      <li>若有小标题匹配，先做小标题：读全部标题，划差异，再看每段首末句和转折句。不要先陷入细节题。</li>
+      <li>细节题按文章顺序做：判断、填空、选择题大多顺着文章走。信息匹配题不按顺序，放在后面，用关键词扫段。</li>
+      <li>人名观点匹配：先在文中圈出所有大写人名，再读题。</li>
+      <li>留下不确定的题就猜一个并做记号。空着必错，判断题猜 NOT GIVEN 并不比猜 FALSE 更高明，要按你找到的证据猜。</li>
+    </ol>
+    <h3>判断题：这门课里要单练的题</h3>
+    <p>TRUE 或 YES：题目的意思与原文一致，允许同义替换。FALSE 或 NO：题目与原文矛盾。NOT GIVEN：原文没说。没说不等于「我觉得不太可能」。最常见的假 NOT GIVEN，其实是你没认出同义替换；最常见的假 FALSE，是你用常识补全了文章没写的比较。</p>
+    <div class="callout note">
+      <h3>三条判别口诀</h3>
+      <ul>
+        <li>题目比原文多出来的比较对象、因果关系、频率或范围，先怀疑 NOT GIVEN。</li>
+        <li>原文有明确相反的数字、方向、主体，才是 FALSE。</li>
+        <li>all, only, never, the first, mainly 这些词要在原文找到同等强度。原文只是 often，题目写成 always，通常是 FALSE 或 NO。</li>
+      </ul>
+    </div>
+    <h3>同义替换的记录格式</h3>
+    <p>每篇阅读至少摘 8 对，格式固定：题干说法 → 原文说法 → 替换类型（同义词、词性变化、具体到概括、双重否定、例子代表类别）。只摘你做错的和你犹豫的。对的题如果替换你本来就会，不必抄。</p>
+    <h3>长句：每周 8 句，不要多</h3>
+    <p>找含有定语从句或分词短语的句子。用铅笔括出主干的主语和谓语，再标谁修饰谁。然后用自己的简单英文口头说一遍意思。这项练习直接服务写作，因为你后来要写的复杂句，就是这类句子的缩小版。</p>
+  </section>
+
+  <section class="chapter" id="writing">
+    <h2><span class="idx">玖</span>写作课</h2>
+    <p>纸笔考试 60 分钟：Task 1 至少 150 词，Task 2 至少 250 词。Task 2 占写作分数的大约三分之二，所以时间按大约 20 分钟和 40 分钟分。电脑考试可以看字数，纸笔要在练习时建立自己的行数感觉。建议 Task 1 写到 160–190 词，Task 2 写到 260–320 词。少于下限会被限分；远超 350 词通常会带来更多语法错误和跑题。</p>
+    <h3>Task 1 学术类：图、表、流程、地图</h3>
+    <p>评分看的是你有没有选主要特征并作比较，不是你有没有把每个数字念完。任何图都要有单独的 overview。没有 overview，这项任务很难进入 6.5 以上的稳定区间。</p>
+    <ol>
+      <li><strong>引言一句：</strong>改写题目。替换 show, give information about 之类的动词，保留对象、地点和时间，不要加文章里没有的背景。</li>
+      <li><strong>Overview 两句：</strong>总体趋势或总体对比，加一个最显眼的特征。这里不堆精确小数。</li>
+      <li><strong>主体两段：</strong>按组别写。动态图把上升的放一起、下降的放一起，或按趋势发生反转的时间切开。静态图按从大到小或按类别。流程按阶段。地图按「不变 / 新增 / 消失」。</li>
+      <li><strong>数据：</strong>每个主要特征配一个关键数字。使用 approximately, just over, slightly under, a mere。单位抄对。</li>
+    </ol>
+    <div class="pair">
+      <div class="before"><small>5 分常见写法</small>In 2000 it was 20. In 2005 it was 35. In 2010 it was 60. In 2015 it was 55. The line goes up and down.</div>
+      <div class="after"><small>6.5 分的方向</small>Overall, enrolment rose sharply in the first decade and then eased slightly. The most striking change was the threefold increase between 2000 and 2010, from 20,000 to 60,000, before a modest fall to 55,000.</div>
+    </div>
+    <h3>Task 1 语言，够用就好</h3>
+    <div class="grid-2">
+      <article class="card">
+        <h3>趋势</h3>
+        <p>rose steadily, climbed to, fell sharply, declined slightly, remained stable, fluctuated, peaked at, hit a low of, overtook, levelled off。名词形式同时会用：a steady rise, a sharp fall。不要在同一篇里只使用 increase 和 decrease。</p>
+      </article>
+      <article class="card">
+        <h3>比较与过程</h3>
+        <p>accounted for, made up, the highest proportion, twice as high as, compared with。流程：first, subsequently, the following stage, be processed, be transported。地图：was replaced by, was extended, was converted into, remained unchanged。</p>
+      </article>
+    </div>
+    <h3>Task 2：先审题，再决定段数</h3>
+    <p>用 4 分钟在题干上做三件事。圈出话题范围。划出任务动词和问题个数。决定你的立场能否用一句话写出来。问题个数就是你的任务清单。只回答了一半，内容项会被卡住。</p>
+    <table>
+      <thead><tr><th>问法</th><th>你必须做的事</th><th>建议结构</th></tr></thead>
+      <tbody>
+        <tr><td>To what extent do you agree or disagree?</td><td>给出明确程度：完全同意、部分同意或不同意</td><td>引言表明立场；两段理由；若部分同意，一段写保留意见；结尾重申</td></tr>
+        <tr><td>Discuss both views and give your opinion.</td><td>两边都要讨论，并且有你自己的观点</td><td>一段一方，一段另一方，你的观点在引言、第二段末或结尾出现，但必须清楚</td></tr>
+        <tr><td>Do the advantages outweigh the disadvantages?</td><td>两边都要写，并说明哪边更重</td><td>一段优势，一段劣势，比较必须出现，不能只罗列</td></tr>
+        <tr><td>Why is this the case? What problems / effects / solutions?</td><td>报告类通常有两个问题</td><td>一段原因，一段影响或解决办法。不要写成你是否同意</td></tr>
+        <tr><td>两个问题混合</td><td>两个问题都要有充分段落</td><td>不要用一段同时打发两个问题</td></tr>
+      </tbody>
+    </table>
+    <h3>一个能到 6.5 的主体段</h3>
+    <p>四步，大约 90–110 词：主题句直接回答题目；用因为/所以把机制讲清楚；给一个具体例子（可以虚构，但要有行为细节）；用一句话扣回立场。例子若是「很多国家的很多人」，等于没有例子。</p>
+    <div class="pair">
+      <div class="before"><small>空例子</small>For example, many people use technology and it causes many problems in society. This is very bad and the government should pay attention.</div>
+      <div class="after"><small>有机制的例子</small>For example, if a city replaces local branch libraries with a single central website, residents who lack reliable internet access lose the only quiet place where they could study. The policy cuts building costs, but it shifts the cost onto people who are already short of time and money.</div>
+    </div>
+    <h3>引言与结尾</h3>
+    <p>引言两句就够：第一句改写题目，第二句给出立场或预告你要回答的两个方面。不要写 With the development of society, in the contemporary world, it is universally acknowledged。结尾重申立场，并加上一个条件或限制，例如「除非公共交通同时改善，否则限制私家车的效果有限」。不要在结尾引入全新的大观点。</p>
+    <h3>从 5.5 改到 6.5 的优先顺序</h3>
+    <ol>
+      <li>字数达标，分段，立场可见。</li>
+      <li>题目中的每个问题都有一段。</li>
+      <li>删掉模板连接词的一半，改用 this / such / these + 名词。</li>
+      <li>把 more and more, good, bad, important 换成话题搭配。</li>
+      <li>每段只留一个你有把握的复合句，其余用清楚的简单句。正确优先于华丽。</li>
+      <li>检查冠词、单复数、动词时态是否与题目时间一致。</li>
+    </ol>
+    <div class="callout warn">
+      <h3>关于背范文</h3>
+      <p>可以拆范文的结构，不可以背句子进考场。考官对成段背诵很熟。你的作业是：同一道题写两版。第一版限时，第二版隔天只改错误和任务，不换立场、不增加华丽词。第二版才是你的真实水平。</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="speaking">
+    <h2><span class="idx">拾</span>口语课</h2>
+    <p>口语 11–14 分钟，面对一位考官，全程录音。三部分：短问答、一分钟准备后的个人陈述、围绕同一话题的深入讨论。口音可以留着。6.5–7.0 看的是：能不能展开、用词是否有一定灵活度、句子是否经常正确、发音是否让人轻松听懂。</p>
+    <div class="grid-3">
+      <article class="card">
+        <h3>Part 1</h3>
+        <p>直接回答，加一个原因，再加一个小细节。20–40 秒。不要反问考官，不要说 That's a hard question 之后沉默。工作、学习、家乡、日常习惯是高频区。你 26 岁，工作类问题用真实职位的公开信息即可，不必透露公司机密，把具体客户换成「一个项目」。</p>
+      </article>
+      <article class="card">
+        <h3>Part 2</h3>
+        <p>一分钟笔记只写四个词块：对象、时间地点、一个感官或过程细节、为什么至今记得。讲述目标 1 分 40 秒到 2 分钟。结构是：点题、背景、展开一个细节、感受。细节只深挖一个，不要五件事各说一句。</p>
+      </article>
+      <article class="card">
+        <h3>Part 3</h3>
+        <p>先给一个直接立场，再给原因，最后给一个例子或对比。被追问时用 It depends 必须马上说「取决于什么」。预测类用 may, is likely to，不要假装你知道未来。</p>
+      </article>
+    </div>
+    <h3>26 岁的素材砖</h3>
+    <p>准备砖，不准备全文。每块砖 40–60 秒，能被装进不同题目。下面六块足够覆盖大量 Part 2。</p>
+    <table>
+      <thead><tr><th>砖</th><th>里面要有的具体信息</th><th>可以挪去的题目</th></tr></thead>
+      <tbody>
+        <tr><td>一次自学</td><td>你为什么开始、用的工具、卡了三周的那个难点、怎么验证自己会了</td><td>技能、网站、目标、困难、书籍、建议</td></tr>
+        <tr><td>一位同事或上司</td><td>一个具体行为，不是「他很善良」。例如他如何改你的第一份报告</td><td>影响你的人、好的建议、团队合作、尊重的人</td></tr>
+        <tr><td>工作的城市与家乡</td><td>通勤、食物、节奏、你适应了什么、仍不适应什么</td><td>城市、变化、旅行、家乡、建筑</td></tr>
+        <tr><td>一件用了很久的物品</td><td>何时得到、外观上的磨损、一次它派上用场的事</td><td>礼物、旧物、科技产品、照片之外的实物</td></tr>
+        <tr><td>一次搞砸又补上的经历</td><td>错在哪个决定、谁帮了你、你后来改了哪一个习惯</td><td>错误、挑战、成功、建议、压力</td></tr>
+        <tr><td>一个你坚持的小习惯</td><td>开始的月份、每周发生的场景、身体或心情上的变化</td><td>健康、日常、早起、运动、烹饪</td></tr>
+      </tbody>
+    </table>
+    <h3>发音四周循环</h3>
+    <p>每四周轮一遍，每天仍只跟读 90 秒，外加 5 分钟专项。</p>
+    <ol>
+      <li>词尾：past tense -ed 的三种读音，复数和三单。录音自查 went, worked, decided, changes。</li>
+      <li>摩擦音：think / sink，very / wary，mouth / mouse。放进句子，不单独发音。</li>
+      <li>重音：把本周 15 个学术词标出重音再读。photography, photographic 这类词族一起记。</li>
+      <li>意群：在一句里用斜线切开，斜线处才许停。停在词中间会让 6 分的流利度听起来像 5 分。</li>
+    </ol>
+    <div class="callout teacher">
+      <h3>录音作业的听法</h3>
+      <p>不要听完只说「好尬」。每次只查一件事。第一次查：有没有回答问题。第二次查：有没有一个具体细节。第三次查：有没有连续三个语法错误。第四次才查发音。四个都一起查，你会什么都不想改。</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="vocab">
+    <h2><span class="idx">拾壹</span>词汇与语法</h2>
+    <h3>词汇的三个筐</h3>
+    <div class="grid-3">
+      <article class="card"><h3>生存筐 · 800</h3><p>第 3–10 周。考试指令、图表词、衔接词、你写作已经在用但拼错的词。目标是听写正确、口语能说。</p></article>
+      <article class="card"><h3>话题筐 · 约 400 个搭配</h3><p>第 8–28 周。下面 16 个话题，每个先掌握 8 个搭配，并各写一个句子。这比背 3000 个孤词更接近 6.5。</p></article>
+      <article class="card"><h3>阅读筐 · 不设上限</h3><p>只在精读里遇见。能认即可，不要求全部会说。每周从阅读摘 20 个，到期还不会就删掉，不要堆成一本永远背不完的词表。</p></article>
+    </div>
+    <h3>十六个话题的第一批搭配</h3>
+    <p>每个搭配造句时，尽量用你自己的生活或一个具体国家、城市、机构，避免 people in the modern world。</p>
+    <table>
+      <thead><tr><th>话题</th><th>先掌握这些搭配</th></tr></thead>
+      <tbody>
+        <tr><td>教育</td><td>rote learning, academic performance, higher education, a steep learning curve, sit / resit an exam, continuous assessment, broaden one's horizons, vocational training</td></tr>
+        <tr><td>工作</td><td>job satisfaction, a heavy workload, career prospects, on-the-job training, work-life balance, manual work, job security, be made redundant</td></tr>
+        <tr><td>科技</td><td>technological advances, become obsolete, personal privacy, depend heavily on, face-to-face contact, automation, data protection, a labour-saving device</td></tr>
+        <tr><td>环境</td><td>carbon emissions, renewable energy, natural habitats, pose a threat to, sustainable development, environmental degradation, fossil fuels, wildlife conservation</td></tr>
+        <tr><td>健康</td><td>sedentary lifestyle, mental wellbeing, life expectancy, processed food, preventive care, health services, a balanced diet, public health</td></tr>
+        <tr><td>城市</td><td>public transport, affordable housing, urban sprawl, traffic congestion, green spaces, a sense of community, high-rise buildings, urban renewal</td></tr>
+        <tr><td>犯罪</td><td>commit an offence, a criminal record, law enforcement, act as a deterrent, petty crime, rehabilitation, a prison sentence, victim support</td></tr>
+        <tr><td>媒体</td><td>biased coverage, target audience, invade someone's privacy, freedom of the press, be exposed to, advertising revenue, break a story, social media platforms</td></tr>
+        <tr><td>政府</td><td>impose a tax, public spending, a controversial policy, allocate resources, welfare benefits, take measures to, regulations, local authorities</td></tr>
+        <tr><td>文化</td><td>cultural identity, cultural diversity, pass down traditions, cultural heritage, mainstream culture, a tourist attraction, customs, a minority language</td></tr>
+        <tr><td>家庭</td><td>nuclear family, extended family, childcare, the generation gap, financial pressure, start a family, elderly relatives, shared housework</td></tr>
+        <tr><td>全球化</td><td>the global economy, free trade, local businesses, widen the gap, a sense of belonging, cultural exchange, multinational companies, imported goods</td></tr>
+        <tr><td>食物与农业</td><td>staple foods, food safety, organic produce, food waste, farming methods, a food shortage, pesticides, supply chains</td></tr>
+        <tr><td>旅行</td><td>peak season, package holidays, boost the local economy, low-cost airlines, overcrowded resorts, off the beaten track, travel restrictions, cultural exchange</td></tr>
+        <tr><td>语言</td><td>mother tongue, a lingua franca, a language barrier, become fluent in, an official language, endangered languages, pick up a language, language policy</td></tr>
+        <tr><td>科学</td><td>scientific evidence, carry out research, a breakthrough in, side effects, ethical concerns, a clinical trial, genetically modified crops, peer review</td></tr>
+      </tbody>
+    </table>
+    <h3>语法十四讲，按这个顺序</h3>
+    <p>每一讲的作业都是：改你自己的旧作文或旧录音，而不是只做选择填空。选择填空用来诊断，改自己的句子才算治疗。</p>
+    <ol>
+      <li><strong>句子边界。</strong>一个句子只有一套主谓，或用连词、分号、关系词合法连接。逗号不能连接两个完整句。错：The policy is new, it may fail. 改：The policy is new, and it may fail. 或 The policy is new, so it may fail.</li>
+      <li><strong>主谓一致与名词复数。</strong>information, advice, equipment, research, furniture 不可数。people 是复数。government 作整体时动词用单数或按你选择的一致体系，全篇统一。</li>
+      <li><strong>冠词。</strong>第一次提到可数单数用 a/an；双方知道的、唯一的、前文提过的用 the；泛指复数或不可数用零冠词。错：Internet has changed education. 改：The internet has changed education.</li>
+      <li><strong>一般过去与现在完成。</strong>有过去时间点用过去时：in 2019, yesterday, when I was a student。说至今为止的经历且没有过去时间点，才用现在完成。</li>
+      <li><strong>可数与量词。</strong>much / many, little / few, amount / number。写作里少用 a lot of 的重复出现，可换成 a significant number of, a small amount of。</li>
+      <li><strong>介词搭配。</strong>depend on, result in, lead to, reason for, interested in, good at, responsible for, compared with。每周从错题里只收 10 个，写进卡片。</li>
+      <li><strong>定语从句。</strong>who 人，which 物，that 两者常可，where 地点。逗号的有无会改变意思。写作里每段最多新写一个定语从句，写对再增加。</li>
+      <li><strong>状语从句。</strong>although 不和 but 连用。because 不和 so 连用。despite 后面接名词或动词-ing，不接完整句子。</li>
+      <li><strong>比较。</strong>more + 形容词 + than, as + 形容词 + as, the number of 与 a number of 不同。图表作文优先练这一讲。</li>
+      <li><strong>被动。</strong>流程和正式讨论里有用：was introduced, is widely believed。不要为了正式把每一句都改成被动。</li>
+      <li><strong>条件。</strong>If public transport improves, fewer people will drive. 与 If the city had built the line earlier, traffic would have eased. 先掌握真实条件，再碰虚拟。</li>
+      <li><strong>分词短语。</strong>Written in haste, the report... 逻辑主语必须是句子主语。这项放在第 20 周之后。</li>
+      <li><strong>指代。</strong>this trend, these measures, such policies。没有名词的 this 容易模糊。这是从 6 到 6.5 的衔接技术。</li>
+      <li><strong>平行结构。</strong>not only ... but also 两边词性一致。列举三项时形态一致。口语里尤其容易前两项是名词、第三项变成句子。</li>
+    </ol>
+  </section>
+
+  <section class="chapter" id="pre">
+    <h2><span class="idx">拾贰</span>预科六周：只在诊断偏弱时上</h2>
+    <p class="sub">触发条件：听力原始分低于 16，或学术阅读低于 15，或你无法在没有中文稿的情况下连续说满 40 秒。预科不计算在 36 周主课里。通过预科验收后再进入第 3 周。</p>
+    <article class="week" id="p1">
+      <header><span class="week-no">P1</span><div><h3>把声音听清楚</h3><p>每天 70 分钟即可，本周约 10 小时</p></div></header>
+      <div class="body">
+        <p>材料用慢速到中速的英音：BBC 6 Minute English，或剑桥听力 Section 1 的原文。不要从讲座开始。每天流程固定：盲听 90 秒，记下你听懂的词；看原文标出没听见的功能词；跟读三遍；最后不看原文再听一遍。另外用 15 分钟读出下面这些最小对立，放进句子里：think/sink，very/wary，light/night，went/when，fifteen/fifty。</p>
+        <p><strong>验收：</strong>能独立听写 Section 1 里连续 5 句中的 3 句，专有名词允许回听一次。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="p1"> 预科第 1 周完成</label>
+      </div>
+    </article>
+    <article class="week" id="p2">
+      <header><span class="week-no">P2</span><div><h3>只写正确的短句</h3><p>句子边界与高频动词</p></div></header>
+      <div class="body">
+        <p>本周禁止写超过 12 个词的句子。每天 10 句：5 句描述昨天的真实日程，5 句描述一张简单图表（升、降、不变）。动词限定在 is, was, has, increased, decreased, stayed, went, worked, studied, needed。写完后大声读，检查每一句是否只有一套主谓。口语每天回答 5 个 Part 1 式问题，限时 20 秒，只要求说完整句：Do you work or study? Where do you live? What did you do yesterday?</p>
+        <p><strong>验收：</strong>20 句短文里，逗号粘连不超过 2 处，动词过去式形态错误不超过 3 处。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="p2"> 预科第 2 周完成</label>
+      </div>
+    </article>
+    <article class="week" id="p3">
+      <header><span class="week-no">P3</span><div><h3>三百个能拼对的词</h3><p>生存词汇，不追求学术华丽</p></div></header>
+      <div class="body">
+        <p>范围只包括：数字与日期、家庭与工作、城市方位、图表趋势、考试指令词（choose, complete, no more than two words）。每天 25 个新词加听写。听写错误的词第二天必须重新听写，而不是重新抄写。阅读材料用 300–400 词的说明文，允许查 8 个词，查完用英文口头解释这一段，不许翻译成中文长篇。</p>
+        <p><strong>验收：</strong>随机抽取 40 个词听写，正确不少于 32 个。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="p3"> 预科第 3 周完成</label>
+      </div>
+    </article>
+    <article class="week" id="p4">
+      <header><span class="week-no">P4</span><div><h3>精读而不是翻译</h3><p>指代、转折、段落功能</p></div></header>
+      <div class="body">
+        <p>选两篇约 500 词的说明文。第一遍限时 8 分钟，只写每段的功能：介绍、原因、例子、对比、结论。第二遍标出 this, these, it, such 指向谁。第三遍才查词。把每篇缩写成 60 词英文，不加入原文没有的观点。这是后来写 overview 的前身。</p>
+        <p><strong>验收：</strong>缩写里没有与原文矛盾的句子，并且至少正确解释 6 处指代。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="p4"> 预科第 4 周完成</label>
+      </div>
+    </article>
+    <article class="week" id="p5">
+      <header><span class="week-no">P5</span><div><h3>开口能撑住一分钟</h3><p>素材砖的雏形</p></div></header>
+      <div class="body">
+        <p>只准备三块砖：工作或学习、居住的城市、一次最近的困难。每块砖写 8 个英文关键词，不写全文。每天每块砖讲两遍，第二遍不看关键词。录音。听录音时只数两件事：有没有具体名词（月份、地点、工具），有没有连续卡顿超过 5 秒。有就重讲这一处，不要整段推倒重来。</p>
+        <p><strong>验收：</strong>任意一块砖可以不看笔记讲到 60 秒。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="p5"> 预科第 5 周完成</label>
+      </div>
+    </article>
+    <article class="week" id="p6">
+      <header><span class="week-no">P6</span><div><h3>预科小验收</h3><p>通过后再进主课第 3 周</p></div></header>
+      <div class="body">
+        <p>听力做一套 Section 1 加 Section 2。阅读做一篇判断题加一段摘要填空，限时 25 分钟。写作用 15 分钟写 120 词，描述你这一周的学习，要求有过去时和至少一个 because。口语录 2 分钟自我介绍加一个城市话题。</p>
+        <p><strong>通过线：</strong>Section 1 错不超过 3 个；阅读正确率不低于 60%；120 词里句子边界基本正确；口语能说满 2 分钟。有一项没过，只重复对应的预科周，不要六周全部重来。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="p6"> 预科验收通过</label>
+      </div>
+    </article>
+  </section>
+
+  <section class="chapter" id="weeks">
+    <h2><span class="idx">拾叁</span>三十六周主课</h2>
+    <p class="sub">示范日历从 2026 年 10 月 26 日周一开始。你若另选开始日，整表顺延，考试日也顺延。每日时长沿用「一周怎么过」，这里只写每天主课的内容。</p>
+    <div class="tools">
+      <button type="button" id="expandAll">展开全部附录与折叠项</button>
+      <button type="button" class="ghost" id="collapseAll">折叠</button>
+      <button type="button" class="ghost" id="printBtn">打印 / 存 PDF</button>
+      <button type="button" class="ghost" id="resetBtn">清除本机进度</button>
+    </div>
+
+    <article class="week" id="w1">
+      <header><span class="week-no">01</span><div><h3>诊断周：测现在的你，不是测大二的你</h3><p>2026-10-26 一周 · 阶段：诊断 · 约 15 小时</p></div></header>
+      <div class="body">
+        <p>本周只用一套你没做过的学术类真题，建议从剑桥雅思 15 至 17 里选，把 18 和 19 留给后半程模考。不要在做题时暂停录音，不要查词，不要把三篇阅读分三天假装成一次成绩。</p>
+        <ul>
+          <li><strong>周一</strong>听力完整一套，含誊写。做完立刻对答案，只记原始分和错题题号，不看解析。</li>
+          <li><strong>周二</strong>阅读完整三篇，60 分钟。记录每篇用时和每篇错题数。</li>
+          <li><strong>周三</strong>Task 2 限时 40 分钟，题目用附录里的原创题 W-01。写完数词数，不做修改。</li>
+          <li><strong>周四</strong>口语完整模拟：Part 1 四个话题，Part 2 用「一次自学」，Part 3 追问三个为什么。全程录音。</li>
+          <li><strong>周五</strong>建立四本账的文件或笔记本。把听力阅读错题分成：没定位、同义替换、干扰、拼写、时间不够。</li>
+          <li><strong>周六</strong>把周三的作文按写作章的六项清单自查，标出但先不重写。语法做附录诊断十二题。</li>
+          <li><strong>周日</strong>听口语录音，按「只查是否回答了问题」听一遍。填写文末诊断器。把未来 8 周的晚间时段写进日历。</li>
+        </ul>
+        <p><strong>验收：</strong>一张基线表，包含听力原始分、阅读原始分、作文字数、口语录音时长。没有这张表，不进入第 2 周。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w1"> 本周完成</label>
+      </div>
+    </article>
+
+    <article class="week" id="w2">
+      <header><span class="week-no">02</span><div><h3>把错误归类，并锁住作息</h3><p>2026-11-02 一周 · 阶段：诊断</p></div></header>
+      <div class="body">
+        <p>本周不再做新套题。诊断的价值在于分类。同一类错误若占了错题的四成，后面两个月就只打这一类。</p>
+        <ul>
+          <li><strong>周一</strong>精听错得最多的那个 Section，按听力章五步法，只处理错题。</li>
+          <li><strong>周二</strong>阅读错题回到原文画依据。判断题额外标注：我用了常识吗。</li>
+          <li><strong>周三</strong>重写诊断作文的引言和其中一个主体段，限时 25 分钟。不追求更华丽，只补上没回答的任务点。</li>
+          <li><strong>周四</strong>口语重录 Part 2，加入一个具体细节：月份、工具或地点。对比上周录音。</li>
+          <li><strong>周五</strong>语音基线：朗读诊断听力原文中的 8 句，录音。标出词尾和重音问题，选定你的四周发音循环起点。</li>
+          <li><strong>周六</strong>找一位监督人，约好每周日晚上发三样东西：作文照片或文档、一段口语录音、本周小时数。对方不必会改，只负责你有没有交。</li>
+          <li><strong>周日</strong>用诊断器决定路径。若触发预科，从下周起改上预科，本页 36 周顺延。</li>
+        </ul>
+        <p><strong>验收：</strong>错误类型前五名写下来了；学习时段在日历里重复出现；路径选择（预科或主课）写在纸上。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w2"> 本周完成</label>
+      </div>
+    </article>
+
+    <article class="week" id="w3">
+      <header><span class="week-no">03</span><div><h3>数字、拼写与 Section 1</h3><p>2026-11-09 · 地基</p></div></header>
+      <div class="body">
+        <p>课的核心：Section 1 的分数是后面所有听力分的地基。听到修正信号就要改答案。重点词：actually, sorry, I mean, no wait, instead。数字要连听带写：电话号码分组、double、日期、价格里的小数。</p>
+        <ul>
+          <li><strong>周一</strong>两篇 Section 1，考试速度，只做一遍。错题做精听。</li>
+          <li><strong>周二</strong>数字听写 30 个：13/30、14/40、15/50、序数、年份、门牌。</li>
+          <li><strong>周三</strong>字母拼写：听写 15 个姓名和街道。自己再用英文拼读给录音。</li>
+          <li><strong>周四</strong>口语 Part 1：work/study, hometown, daily routine，各 4 题，每题 25 秒。</li>
+          <li><strong>周五</strong>语法第 1 讲句子边界。从任何旧文本里改 8 个逗号粘连。</li>
+          <li><strong>周六</strong>再做两篇没做过的 Section 1。目标：单篇错不超过 2 个。</li>
+          <li><strong>周日</strong>跟读本周错题原句。复盘。</li>
+        </ul>
+        <p><strong>验收：</strong>新做的 Section 1 平均错题不超过 2 个。若超过，下周仍保留一半时间给 Section 1。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w3"> 本周完成</label>
+      </div>
+    </article>
+
+    <article class="week" id="w4">
+      <header><span class="week-no">04</span><div><h3>地图、方位与简单句扩展</h3><p>2026-11-16 · 地基</p></div></header>
+      <div class="body">
+        <p>地图题先找起点和你面朝的方向，再用方位词移动：go past, opposite, next to, at the far end, take the second left。语言上本周只加并列和 because / although，不加更长的从句。</p>
+        <ul>
+          <li><strong>周一</strong>两篇含地图或平面图的 Section 2。先在图上用中文写出左右，再听，训练完就把中文擦掉。</li>
+          <li><strong>周二</strong>方位词跟读，并把 10 个方位词说进你真实城市的路线：「出地铁站，银行在……」</li>
+          <li><strong>周三</strong>语法第 2 讲主谓一致与不可数名词。改 10 句。</li>
+          <li><strong>周四</strong>阅读：不计时，找两篇说明文，只做「圈专有名词和数字」然后对照题目，体会定位。</li>
+          <li><strong>周五</strong>用 because 和 although 各写 6 句，主题用你的工作。although 后面不许出现 but。</li>
+          <li><strong>周六</strong>Section 1 一篇加 Section 2 一篇，限时一遍。</li>
+          <li><strong>周日</strong>口语：描述从家里到一个常去地方的路线，90 秒。</li>
+        </ul>
+        <p><strong>验收：</strong>能不看笔记讲清一段 6 步路线；地图题能说出自己错在「方向」还是「词汇」。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w4"> 本周完成</label>
+      </div>
+    </article>
+
+    <article class="week" id="w5">
+      <header><span class="week-no">05</span><div><h3>定语从句与段落功能</h3><p>2026-11-23 · 地基</p></div></header>
+      <div class="body">
+        <p>阅读先看结构，不先看每一个词。每段用一个动词概括功能：defines, explains, contrasts, gives an example, reports a finding。写作上，定语从句用来合并信息，不是用来把句子弄长。who / which / that / where 的选择按语法章第 7 讲执行。</p>
+        <ul>
+          <li><strong>周一</strong>一篇阅读，限时 8 分钟只写段落功能，不答题。</li>
+          <li><strong>周二</strong>同一篇，限时 15 分钟做细节题。对比：功能判断对了的段落，细节是否也更准。</li>
+          <li><strong>周三</strong>把 8 个短句合并成含定语从句的句子，再朗读检查是否还能听懂。</li>
+          <li><strong>周四</strong>听力 Section 2 匹配题一篇，加上 Section 1 复习一篇。</li>
+          <li><strong>周五</strong>词汇：教育话题 8 个搭配，每个造句，并口头使用一次。</li>
+          <li><strong>周六</strong>精读里摘 8 对同义替换，使用阅读章规定的格式。</li>
+          <li><strong>周日</strong>口语 Part 1 教育与学习经历，回答里故意使用一个定语从句，只用一个。</li>
+        </ul>
+        <p><strong>验收：</strong>一篇文章的段落功能至少对 70%；8 个定语从句里至少 6 个语法正确。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w5"> 本周完成</label>
+      </div>
+    </article>
+
+    <article class="week" id="w6">
+      <header><span class="week-no">06</span><div><h3>判断题的逻辑</h3><p>2026-11-30 · 地基</p></div></header>
+      <div class="body">
+        <p>本周主课就是 TRUE / FALSE / NOT GIVEN。先做附录里的短文练习，对完之后再碰真题。每道错题必须写成一句自责式的规则，例如「题目写了 mainly，原文只是列出三个例子，我把它当成了 FALSE，其实是 NOT GIVEN」。</p>
+        <ul>
+          <li><strong>周一</strong>附录判断短文，不限时，但要标出证据句。</li>
+          <li><strong>周二</strong>真题判断题一组，限时 20 分钟，含阅读文章其余部分的略读。</li>
+          <li><strong>周三</strong>只复盘错题，重做一遍，仍不看解析里的中文。</li>
+          <li><strong>周四</strong>听力保持：Section 1 和 2 各一篇，防止地基退步。</li>
+          <li><strong>周五</strong>语法第 3 讲冠词。用教育话题的 8 个句子挖空冠词再填。</li>
+          <li><strong>周六</strong>第二组判断题。记录 TRUE、FALSE、NOT GIVEN 各自的正确率，看自己偏错哪一类。</li>
+          <li><strong>周日</strong>口语：解释你工作里一个规定为什么存在，60 秒。这是在练「因果」，为写作做准备。</li>
+        </ul>
+        <p><strong>验收：</strong>第二组判断题正确率不低于 70%。若 NOT GIVEN 全错，下周加练两组，主课其他任务减半。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w6"> 本周完成</label>
+      </div>
+    </article>
+
+    <article class="week" id="w7">
+      <header><span class="week-no">07</span><div><h3>只写引言</h3><p>2026-12-07 · 地基</p></div></header>
+      <div class="body">
+        <p>引言两句：改写题目，表明立场或预告两个任务。本周写 6 个引言，不写全文。题目用附录 W-02 至 W-07。每篇限时 8 分钟。写完检查：有没有 With the development of society；有没有直接回答问题；话题范围有没有被你偷偷扩大。</p>
+        <ul>
+          <li><strong>周一至周三</strong>每天两个引言。第二天先改前一天的冠词和立场，再写新的。</li>
+          <li><strong>周四</strong>听力 Section 3 入门一篇。笔记只记说话人首字母和态度，对答案后补同义替换。</li>
+          <li><strong>周五</strong>语法第 4 讲过去时与现在完成。把 6 个引言里时间关系不对的动词改掉。</li>
+          <li><strong>周六</strong>阅读一篇，题型不限，限时 20 分钟。摘同义替换 8 对。</li>
+          <li><strong>周日</strong>从 6 个引言里挑最好的一个，口头用 40 秒讲出同样的立场，不背原句。</li>
+        </ul>
+        <p><strong>验收：</strong>6 个引言里至少 4 个同时满足：两句、有立场、没有模板空话。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w7"> 本周完成</label>
+      </div>
+    </article>
+
+    <article class="week" id="w8">
+      <header><span class="week-no">08</span><div><h3>主体段的四步</h3><p>2026-12-14 · 地基</p></div></header>
+      <div class="body">
+        <p>按写作章的四步写主体段：主题句、机制、具体例子、扣题。本周写 3 个主体段，每段 90–110 词，每段限时 15 分钟。例子必须出现一个具体主体，可以是一座城市、一所机构或你的办公室，不能是 many people。</p>
+        <ul>
+          <li><strong>周一</strong>用 W-02 写一段，立场与上周引言一致。</li>
+          <li><strong>周二</strong>改周一的段：只删空话，不增加新观点。然后词汇做科技话题 8 个搭配。</li>
+          <li><strong>周三</strong>用 W-04 写第二段。</li>
+          <li><strong>周四</strong>听力 Section 3 第二篇。目标是听出观点转变。</li>
+          <li><strong>周五</strong>用 W-05 写第三段。语法检查 despite 和 although 是否用对。</li>
+          <li><strong>周六</strong>阅读判断题加其他题型，完整一篇，20 分钟。</li>
+          <li><strong>周日</strong>把三个例子分别口头讲 40 秒。录音。</li>
+        </ul>
+        <p><strong>验收：</strong>三段都有具体例子；段内没有逗号粘连；你能指出每段的「机制句」在哪一句。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w8"> 本周完成</label>
+      </div>
+    </article>
+
+    <article class="week" id="w9">
+      <header><span class="week-no">09</span><div><h3>Overview：小作文的得分点</h3><p>2026-12-21 · 地基</p></div></header>
+      <div class="body">
+        <p>本周不写完整小作文。只练「看图两分钟 + 写 overview 两句」。图用你自己画的简单数据也行，也可以用真题图但先遮住范文。Overview 里禁止出现过多小数，必须有比较或总趋势。</p>
+        <ul>
+          <li><strong>周一</strong>折线图两张，各写 overview。语法用比较级那一讲。</li>
+          <li><strong>周二</strong>柱状图两张。动词换着用，不许两张都只用 increase。</li>
+          <li><strong>周三</strong>表格一张、饼图一张。练习 accounted for 和 the largest share。</li>
+          <li><strong>周四</strong>听力 Section 4 信号词：只听一篇的前两分钟，每听到信号词就暂停记录。然后再完整做这篇的前半。</li>
+          <li><strong>周五</strong>环境话题搭配 8 个，并用来改写一个 overview，使它更具体。</li>
+          <li><strong>周六</strong>限时 10 分钟写四个 overview。之后对照范文看你有没有选错主要特征，不要先看范文。</li>
+          <li><strong>周日</strong>口语比较：你的家乡与现在工作的城市，使用比较级，90 秒。</li>
+        </ul>
+        <p><strong>验收：</strong>四个限时 overview 都包含总趋势和一个突出特征，且没有逐点报数。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w9"> 本周完成</label>
+      </div>
+    </article>
+
+    <article class="week" id="w10">
+      <header><span class="week-no">10</span><div><h3>地基验收</h3><p>2026-12-28 · 过关周</p></div></header>
+      <div class="body">
+        <p>这是第一次决定是否按原速度进入分科工艺。材料换一套没做过的题。写作不要求成篇完美，要求程序正确。</p>
+        <ul>
+          <li><strong>周一</strong>听力 Section 1–2 限时。目标原始分合计错题不超过 4 个（共约 20 题）。</li>
+          <li><strong>周二</strong>阅读两篇，共 40 分钟，其中至少一篇含判断题。</li>
+          <li><strong>周三</strong>Task 1：20 分钟写完整一篇动态图，必须有 overview。</li>
+          <li><strong>周四</strong>Task 2：35 分钟。允许只完成引言加两个主体段，词数尽量到 220 以上。</li>
+          <li><strong>周五</strong>口语完整 11 分钟模拟。</li>
+          <li><strong>周六</strong>复盘，更新错误类型前五名。和两个月前的诊断对比。</li>
+          <li><strong>周日</strong>休息半天。只做卡片复习。</li>
+        </ul>
+        <p><strong>过关线：</strong>听力前两部基本稳定；阅读单篇正确率约 60% 或更高；Task 1 有 overview；口语能说满 Part 2。没过的项目，第 11–12 周每天仍留 30 分钟返工，不要假装已经进入 7 分技巧。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w10"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w11">
+      <header><span class="week-no">11</span><div><h3>听力选择题：原词重复多半不是答案</h3><p>2027-01-04 · 分科</p></div></header>
+      <div class="body">
+        <p>单选和多选先读题干里的限制词：both, mainly, the first, not。选项之间的差别用笔标出来。听的时候，讲话人提到某个选项的原词，先在旁边点一个点，不要急着选定；后面若出现否定或改口，点要划掉。正确项经常是后一句的同义说法。</p>
+        <ul>
+          <li><strong>周一</strong>Section 3 选择题两篇，一遍。错题做同义替换摘录。</li>
+          <li><strong>周二</strong>把错题的干扰句抄下来，标出否定词和转折词。</li>
+          <li><strong>周三</strong>Section 2 选择题或匹配一篇，保持前半部分手感。</li>
+          <li><strong>周四</strong>口语 Part 1 深挖：每个答案加一个例子，控制在 35 秒内，避免变成演讲。</li>
+          <li><strong>周五</strong>工作话题搭配 8 个，写进口语答案再录音。</li>
+          <li><strong>周六</strong>Section 3 新题两篇。统计「因为选了原词而错」的比例。</li>
+          <li><strong>周日</strong>跟读错题原句。</li>
+        </ul>
+        <p><strong>验收：</strong>周六新题里，因原词陷阱导致的错误比周一少。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w11"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w12">
+      <header><span class="week-no">12</span><div><h3>笔记填空与字数限制</h3><p>2027-01-11 · 分科</p></div></header>
+      <div class="body">
+        <p>填空题的答案几乎总是录音原词。题目若写 NO MORE THAN TWO WORDS，三个词必错，冠词算一个词。先看空格前后词性：空格前是 a/an，答案多半是可数单数名词；空格前是 to，答案可能是动词原形。Section 4 失败常见原因不是完全没听懂，而是写的时候丢了单复数或拼写。</p>
+        <ul>
+          <li><strong>周一</strong>Section 4 一篇，重点看信号词和空格词性，不追求全对。</li>
+          <li><strong>周二</strong>同一篇精听错题，听写答案所在句。</li>
+          <li><strong>周三</strong>新的 Section 4，严格字数。</li>
+          <li><strong>周四</strong>阅读摘要填空一篇，体会与听力填空的相似：答案常在原文原词。</li>
+          <li><strong>周五</strong>听写 20 个学术词拼写。错的做成卡片。</li>
+          <li><strong>周六</strong>听力半套：Section 3 加 Section 4。</li>
+          <li><strong>周日</strong>口语：用信号词讲一个过程（first, the next stage, what mattered most），90 秒。</li>
+        </ul>
+        <p><strong>验收：</strong>填空错题里，至少一半能说清是词性、字数还是拼写，而不是笼统的「没听懂」。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w12"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w13">
+      <header><span class="week-no">13</span><div><h3>判断题限时</h3><p>2027-01-18 · 分科</p></div></header>
+      <div class="body">
+        <p>把第 6 周的逻辑放进时间压力。一篇文章里若判断题在前，先做判断，但每题找证据不超过 90 秒，超时就标记猜测并前进。本周目标不是正确率突然到 90%，而是不再在一道题上花四分钟。</p>
+        <ul>
+          <li><strong>周一</strong>含判断题的文章，限时 18 分钟做完全篇所有题。</li>
+          <li><strong>周二</strong>只复盘判断题，写成规则卡片。</li>
+          <li><strong>周三</strong>YES / NO / NOT GIVEN 与 TRUE / FALSE / NOT GIVEN 各一组，体会前者是对观点，后者是对事实，做题逻辑相同。</li>
+          <li><strong>周四</strong>听力 Section 4 一篇，保持。</li>
+          <li><strong>周五</strong>健康话题搭配，并用来口头解释一个公共健康例子。</li>
+          <li><strong>周六</strong>两篇阅读，共 40 分钟。</li>
+          <li><strong>周日</strong>长句 8 句，括出主谓。</li>
+        </ul>
+        <p><strong>验收：</strong>每篇都能在时限内做完；判断题正确率不低于 65%。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w13"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w14">
+      <header><span class="week-no">14</span><div><h3>匹配题：小标题、信息、特征</h3><p>2027-01-25 · 分科</p></div></header>
+      <div class="body">
+        <p>小标题看的是整段功能，不是某一句的原词。先排除过于具体、只覆盖例子的标题。信息匹配（Which paragraph contains）不按顺序，用稀有词定位，找的是信息而不是整段主旨。特征匹配先圈文中全部人名或地名。</p>
+        <ul>
+          <li><strong>周一</strong>小标题一篇，先自己配，再对答案，写下每个错配是「太具体」还是「方向反了」。</li>
+          <li><strong>周二</strong>信息匹配一篇。</li>
+          <li><strong>周三</strong>人名观点匹配一篇。</li>
+          <li><strong>周四</strong>听力匹配题一篇，和阅读匹配对照：都是在抓差异。</li>
+          <li><strong>周五</strong>城市话题搭配 8 个。</li>
+          <li><strong>周六</strong>混合题型一篇，限时 20 分钟。若有小标题，先做小标题。</li>
+          <li><strong>周日</strong>口语：描述你住的城区发生的一个变化，用过去时和现在时分开，90 秒。</li>
+        </ul>
+        <p><strong>验收：</strong>三种匹配你能说出各自先看什么，并且周六的文章是按这个顺序做的。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w14"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w15">
+      <header><span class="week-no">15</span><div><h3>摘要、流程与句子填空</h3><p>2027-02-01 · 分科</p></div></header>
+      <div class="body">
+        <p>摘要分选词和选原文两种。选原文时答案多半是原词，注意字数；选词时先判断词性，再缩小列表。摘要的顺序通常与文章顺序一致，可用来定位后文。句子填空同理。不要为了语法好看而改变词形，除非语法确实要求，并且词数还够。</p>
+        <ul>
+          <li><strong>周一</strong>摘要填空一篇。</li>
+          <li><strong>周二</strong>流程图或示意图一篇。没有就做句子填空，并把流程语言记入语料本。</li>
+          <li><strong>周三</strong>复盘：所有填空错题分类为定位、词性、字数、抄错。</li>
+          <li><strong>周四</strong>听力笔记填空一篇，与阅读填空同一天对照。</li>
+          <li><strong>周五</strong>语法第 9 讲比较结构，改 8 句。</li>
+          <li><strong>周六</strong>完整一篇混合题，20 分钟。</li>
+          <li><strong>周日</strong>用流程语言口头描述你工作时的一个小流程，60 秒。</li>
+        </ul>
+        <p><strong>验收：</strong>填空题的词性判断在动笔前写在草稿纸上，形成习惯。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w15"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w16">
+      <header><span class="week-no">16</span><div><h3>三篇连做的节奏实验</h3><p>2027-02-08 · 分科</p></div></header>
+      <div class="body">
+        <p>第一次用 60 分钟做完三篇。建议顺序就是试卷顺序。时间分配先试 18/20/22。做完记录：哪一篇超时、哪一篇是猜完的、正确率是否因为赶而下降。下一周不改方法，只把超时那一篇的题型回到对应周的动作重练。</p>
+        <ul>
+          <li><strong>周一</strong>休息性精读：一篇不限时，练长句 8 句，保护正确率信心。</li>
+          <li><strong>周二</strong>轻量听力 Section 4。</li>
+          <li><strong>周三</strong>复习判断和匹配的规则卡片，不新做。</li>
+          <li><strong>周四</strong>口语 Part 2 砖「一次自学」讲到 1 分 40 秒。</li>
+          <li><strong>周五</strong>只复习卡片和错题。</li>
+          <li><strong>周六</strong>阅读全套 60 分钟。这是本周唯一的新套题。</li>
+          <li><strong>周日</strong>按 1:2 复盘。写下你的个人节奏，例如「第二篇匹配太慢，以后匹配每题 90 秒封顶」。</li>
+        </ul>
+        <p><strong>验收：</strong>有一份三篇的用时和错题分布。正确率暂时不设硬门槛，但必须做完。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w16"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w17">
+      <header><span class="week-no">17</span><div><h3>Task 1 动态图成篇</h3><p>2027-02-15 · 分科</p></div></header>
+      <div class="body">
+        <p>完整小作文。时间从 25 分钟收束到 20 分钟。步骤见写作章。本周写两篇：一篇折线，一篇柱状或混合。每篇必须：引言改写、单独 overview、主体按组别、至少四个不同趋势动词、160–190 词。</p>
+        <ul>
+          <li><strong>周一</strong>不限时写折线，研究分组。可以超过 25 分钟，但要记录超时在哪一步。</li>
+          <li><strong>周二</strong>把周一的文章砍到 190 词以内，优先删重复数字。</li>
+          <li><strong>周三</strong>限时 22 分钟写第二篇。</li>
+          <li><strong>周四</strong>对照清单改第二篇：时态是否与图的时间一致，单位是否抄对。</li>
+          <li><strong>周五</strong>听力半套，防止写作周听读塌陷。</li>
+          <li><strong>周六</strong>限时 20 分钟第三篇动态图。写完立刻停。</li>
+          <li><strong>周日</strong>只改周六那篇的 overview 和分组，不重写全文。口语讲一个「上升然后回落」的个人经历，用来巩固趋势语言，60 秒。</li>
+        </ul>
+        <p><strong>验收：</strong>周六那篇在 20 分钟内完成，有 overview，词数合格。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w17"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w18">
+      <header><span class="week-no">18</span><div><h3>静态图、流程与地图</h3><p>2027-02-22 · 分科</p></div></header>
+      <div class="body">
+        <p>静态图没有时间趋势，overview 写对比：谁最大、谁最小、两组之间的明显差异。流程不要加入你知道但图上没有的专业知识。地图按不变、新建、拆除、改用途来分组。本周三选二，优先选你最不熟的两类；若诊断时几乎没见过流程，流程必做。</p>
+        <ul>
+          <li><strong>周一</strong>静态图或饼图，限时 22 分钟。</li>
+          <li><strong>周二</strong>流程或地图，先列阶段再写，限时 22 分钟。</li>
+          <li><strong>周三</strong>改前两篇的分组。读出声，听有没有在报流水账。</li>
+          <li><strong>周四</strong>阅读一篇 20 分钟。</li>
+          <li><strong>周五</strong>被动语态只练流程里需要的 8 句，不把所有句子改成被动。</li>
+          <li><strong>周六</strong>限时 20 分钟，写你更弱的那一类。</li>
+          <li><strong>周日</strong>口语描述一座建筑或街区的变化，可使用地图语言，90 秒。</li>
+        </ul>
+        <p><strong>验收：</strong>流程或地图作文里能找出「分组」，而不是从头到尾编号却没有比较。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w18"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w19">
+      <header><span class="week-no">19</span><div><h3>观点类大作文</h3><p>2027-03-01 · 分科</p></div></header>
+      <div class="body">
+        <p>问法是 to what extent do you agree or disagree。立场三选一：同意、不同意、部分同意。部分同意不是骑墙，必须写清你同意哪一部分、保留哪一部分。本周写两篇全篇，题目 W-02 与 W-08。第一篇可以 45 分钟，第二篇 40 分钟。</p>
+        <ul>
+          <li><strong>周一</strong>审题 4 分钟，列提纲：立场一句、两个理由、每个理由的例子关键词。然后写完 W-02。</li>
+          <li><strong>周二</strong>按六项清单改周一的文章，只改一版。</li>
+          <li><strong>周三</strong>限时写 W-08。</li>
+          <li><strong>周四</strong>把两篇里的 more and more, good, bad, important 全部换成话题搭配。</li>
+          <li><strong>周五</strong>听力 Section 3 加阅读一篇，各限时。</li>
+          <li><strong>周六</strong>不写新作文。把周二的修改版朗读并录音，听语法破句。</li>
+          <li><strong>周日</strong>用同一立场回答两个口语追问，避免书面语直接搬进口语，例如少用 furthermore。</li>
+        </ul>
+        <p><strong>验收：</strong>两篇文章立场都看得见；每篇至少两个具体例子；词数不少于 250。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w19"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w20">
+      <header><span class="week-no">20</span><div><h3>双边讨论与利弊</h3><p>2027-03-08 · 分科</p></div></header>
+      <div class="body">
+        <p>Discuss both views 若只写你赞成的一边，任务就没完成。结构：引言里先表态也可以，一段一方，一段另一方，你的理由放在你支持的那一边并写得更具体。利弊题必须有比较句：the benefits are more significant because... 题目用 W-03 与 W-09。</p>
+        <ul>
+          <li><strong>周一</strong>W-03 列两边的最强理由，防止两边都写成鸡毛蒜皮。限时 40 分钟成文。</li>
+          <li><strong>周二</strong>检查有没有自己的观点。没有就重写结尾和引言，主体尽量保留。</li>
+          <li><strong>周三</strong>W-09 利弊，限时 40 分钟。要求文中出现一次直接比较。</li>
+          <li><strong>周四</strong>语法第 13 讲指代。把两篇里的 Also, Besides 减少，改成 this policy 一类回指。</li>
+          <li><strong>周五</strong>政府与媒体话题搭配各 4 个，替换作文里的弱词。</li>
+          <li><strong>周六</strong>阅读全套或听力全套，二选一，看哪科离目标更远。</li>
+          <li><strong>周日</strong>口语 Part 3：给出两边，再给偏好，2 分钟。</li>
+        </ul>
+        <p><strong>验收：</strong>讨论题两边都有实质段落；利弊题有一句明确的权衡。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w20"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w21">
+      <header><span class="week-no">21</span><div><h3>报告类与双问题</h3><p>2027-03-15 · 分科</p></div></header>
+      <div class="body">
+        <p>Why is this happening, and what can be done? 这类题不是让你表态同意。一段原因，一段措施。措施要对应原因：若原因是价格，措施却在讲教育宣传，逻辑就断了。双问题同理，一段一问。题目 W-06 与 W-10。</p>
+        <ul>
+          <li><strong>周一</strong>只做审题训练：把附录 12 道题的问题个数和题型标出来，不写作文。目标 30 分钟内标完。</li>
+          <li><strong>周二</strong>W-06 限时 40 分钟。</li>
+          <li><strong>周三</strong>检查措施是否对应原因。不对应就改措施，不改原因。</li>
+          <li><strong>周四</strong>W-10 限时 40 分钟。</li>
+          <li><strong>周五</strong>听力与阅读各一篇，保持输入。</li>
+          <li><strong>周六</strong>从本周两篇里统计语法错误类型，选出出现最多的一种，用语法十四讲里对应的那一讲改 10 句。</li>
+          <li><strong>周日</strong>口语：讲一个你身边的问题及其可行的小措施，避免「政府应该提高意识」这种空措施。</li>
+        </ul>
+        <p><strong>验收：</strong>两篇文章都回答了两个问题；措施具体到行为或制度，而不是 awareness。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w21"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w22">
+      <header><span class="week-no">22</span><div><h3>中期模考</h3><p>2027-03-22 · 过关周</p></div></header>
+      <div class="body">
+        <p>完整学术类模考，分两天，严格计时。使用没做过的套题。写作口语在第二天，避免一天之内疲劳到失真。复盘时间要多于考试时间。分数用来决定后八周的比重。</p>
+        <ul>
+          <li><strong>周一至周四</strong>只复习个人错误类型前五名，不接触新题型。</li>
+          <li><strong>周五</strong>卡片与早睡。</li>
+          <li><strong>周六</strong>听力加阅读，中间休息 15 分钟。不要同一天再写大作文。</li>
+          <li><strong>周日</strong>Task 1 加 Task 2 共 60 分钟，然后口语 12 分钟。记录分数。作文先自查，有条件就发给能按评分标准反馈的人。</li>
+        </ul>
+        <p><strong>参考线，不是判决：</strong>听力原始分大约 26 以上，阅读大约 26 以上，写作口语自估靠近 6。若听或读仍低于 23，第 23–26 周把周六改回该科套题，写作保持每周一篇即可。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w22"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w23">
+      <header><span class="week-no">23</span><div><h3>60 分钟里的两篇作文</h3><p>2027-03-29 · 限时</p></div></header>
+      <div class="body">
+        <p>第一次严格 20 + 40。先写 Task 2 也可以，若你担心大作文写不完；一旦选定顺序，后三周不要换来换去。本周顺序建议：Task 2 先写 40 分钟，再 Task 1 写 20 分钟。因为 Task 2 权重大，且你现在最容易在大作文上超时。</p>
+        <ul>
+          <li><strong>周一</strong>用 45 分钟复盘中期模考里最亏的那一科，然后用 30 分钟练 4 个提纲，覆盖四种问法，不写全文。</li>
+          <li><strong>周二</strong>Task 2 单篇 40 分钟，W-11。</li>
+          <li><strong>周三</strong>Task 1 单篇 20 分钟。</li>
+          <li><strong>周四</strong>改这两篇。</li>
+          <li><strong>周五</strong>听读各一篇。</li>
+          <li><strong>周六</strong>连续 60 分钟写完两篇，题目 W-12 加一张新图。</li>
+          <li><strong>周日</strong>复盘时间分配：提纲、主体、结尾各用了几分钟。口语休息式聊天 10 分钟，用英文描述周末即可。</li>
+        </ul>
+        <p><strong>验收：</strong>周六两篇都写完，Task 2 不少于 250 词，Task 1 不少于 150 词。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w23"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w24">
+      <header><span class="week-no">24</span><div><h3>口语素材砖，讲满两分钟</h3><p>2027-04-05 · 限时</p></div></header>
+      <div class="body">
+        <p>把口语章的六块砖全部讲一遍。每块砖准备四个关键词，不写句子。讲述后听录音，若发现自己在背，就打乱关键词顺序重讲。Part 2 的评分奖励展开，不奖励背诵痕迹。</p>
+        <ul>
+          <li><strong>周一至周三</strong>每天两块砖，每块讲两遍。</li>
+          <li><strong>周四</strong>抽两块砖，各配一个你没准备过的 Part 2 题目，强迫重组。题目可从附录抽。</li>
+          <li><strong>周五</strong>发音循环：本周重点词尾和过去式。</li>
+          <li><strong>周六</strong>阅读或听力全套，看中期模考里更弱的一科。</li>
+          <li><strong>周日</strong>完整口语模拟，Part 2 使用重组过的砖。</li>
+        </ul>
+        <p><strong>验收：</strong>六块砖都能说到 1 分 40 秒；至少两块被成功装进新题目。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w24"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w25">
+      <header><span class="week-no">25</span><div><h3>Part 3：抽象问题</h3><p>2027-04-12 · 限时</p></div></header>
+      <div class="body">
+        <p>Part 3 的问题类型就这几类：原因、影响、对比过去与现在、预测、解决办法、利弊。每种准备反应骨架，而不是准备答案。例如原因：The main reason is... Another factor is... 预测：It is likely to... especially if... 本周每种类型练 4 题，答案 40–60 秒。</p>
+        <ul>
+          <li><strong>周一</strong>原因与影响。</li>
+          <li><strong>周二</strong>过去与现在的对比。时态分开。</li>
+          <li><strong>周三</strong>预测与条件句。先用真实条件，不用虚拟也行。</li>
+          <li><strong>周四</strong>解决办法。禁止空泛的 raise awareness，除非你紧接着说谁做什么。</li>
+          <li><strong>周五</strong>被追问训练：自己先答，然后故意追问 why 和 can you think of an example。</li>
+          <li><strong>周六</strong>写作一篇 40 分钟，把口语里用过的一个例子写进作文，体会口语例子和写作例子的详略差别。</li>
+          <li><strong>周日</strong>全真口语，重点听 Part 3 有没有直接回答。</li>
+        </ul>
+        <p><strong>验收：</strong>任一类型抽两题，能在 5 秒内开口，并且不跑题。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w25"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w26">
+      <header><span class="week-no">26</span><div><h3>用词精度周</h3><p>2027-04-19 · 限时</p></div></header>
+      <div class="body">
+        <p>这一周少学新词，多换旧词。把近四周作文和口语里的弱词列成表。写作目标是每篇出现 6 个准确搭配，而不是 20 个生僻词。口语目标是减少 I think 的次数，改用 I suppose, It seems, The main reason is，且仍然自然。</p>
+        <ul>
+          <li><strong>周一</strong>统计弱词。</li>
+          <li><strong>周二</strong>改一篇旧作文的用词，不改结构和立场。</li>
+          <li><strong>周三</strong>把改过的段落读成口语，删掉过于书面的词，例如 moreover 在口语里可以换成 also 或 and。</li>
+          <li><strong>周四</strong>阅读摘 10 个搭配，当天全部造句。</li>
+          <li><strong>周五</strong>听写这 10 个搭配。</li>
+          <li><strong>周六</strong>新写一篇 Task 2，只允许使用你已经造过句的搭配来升级用词。</li>
+          <li><strong>周日</strong>口语模拟，听一遍专门数 I think 和 very good。</li>
+        </ul>
+        <p><strong>验收：</strong>新作文里弱词明显减少；你能讲出这篇文章里最好的 6 个搭配。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w26"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w27">
+      <header><span class="week-no">27</span><div><h3>语法准确率，而不是新语法</h3><p>2027-04-26 · 限时</p></div></header>
+      <div class="body">
+        <p>7 分语法的样子是经常有正确的复合句，而不是每句都复杂。本周把你最高频的三种语法错误写成检查单，放在写作最后 3 分钟和口语录音之后使用。不再开启新的语法项目，除非你的高频错误里有还没学的那一讲。</p>
+        <ul>
+          <li><strong>周一</strong>从旧作文统计错误，确定前三名。</li>
+          <li><strong>周二</strong>针对第一名，改 15 句，并写一条自己的规则。</li>
+          <li><strong>周三</strong>第二名，同样。</li>
+          <li><strong>周四</strong>第三名，同样。</li>
+          <li><strong>周五</strong>限时写 Task 2，最后 3 分钟只查这三项。</li>
+          <li><strong>周六</strong>听力阅读按弱项选一套的一半。</li>
+          <li><strong>周日</strong>口语录音后，只听语法，数这三类错误。</li>
+        </ul>
+        <p><strong>验收：</strong>周五的作文里，这三类错误比旧作文少，且至少有 4 句正确的复合句。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w27"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w28">
+      <header><span class="week-no">28</span><div><h3>听力冲 7.5：拼写与单复数</h3><p>2027-05-03 · 限时</p></div></header>
+      <div class="body">
+        <p>当原始分到了 28 左右，再往上往往不是「听不懂文章」，而是答案格式。本周每一套填空都做二次检查：单复数、连字符、大小写专名、是否超字数。选择题继续防原词陷阱。目标是一整套错题不超过 8 个，其中格式错误不超过 1 个。</p>
+        <ul>
+          <li><strong>周一</strong>全套听力，严格一遍。</li>
+          <li><strong>周二</strong>错题分类。格式错误单独一列。</li>
+          <li><strong>周三</strong>听写错题原句，并做 Section 4 新篇一篇。</li>
+          <li><strong>周四</strong>地图或匹配，防止题型生疏。</li>
+          <li><strong>周五</strong>20 个易拼错词听写。</li>
+          <li><strong>周六</strong>第二套听力。</li>
+          <li><strong>周日</strong>对比两套的错题类型是否在减少。口语轻松维持 10 分钟。</li>
+        </ul>
+        <p><strong>验收：</strong>两套里较好的一套，原始分达到大约 30，或比中期模考至少多对 3 题。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w28"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w29">
+      <header><span class="week-no">29</span><div><h3>阅读冲 7：速度下的证据</h3><p>2027-05-10 · 限时</p></div></header>
+      <div class="body">
+        <p>7 分阅读仍要能指出证据句。本周两套全真阅读。每套复盘时，随机抽 5 道对的题和全部错的题，都要在 30 秒内指回原文。指不回的「对的题」算蒙对，不计入把握分。</p>
+        <ul>
+          <li><strong>周一</strong>全套 60 分钟。</li>
+          <li><strong>周二</strong>证据回指练习。</li>
+          <li><strong>周三</strong>只重做 NOT GIVEN 和 FALSE 错题。</li>
+          <li><strong>周四</strong>长句 8 句，口头释义。</li>
+          <li><strong>周五</strong>写作 40 分钟，保持手感。</li>
+          <li><strong>周六</strong>第二套阅读。</li>
+          <li><strong>周日</strong>总结你的题型用时上限，写成一张小卡片，考试时放在脑子里。</li>
+        </ul>
+        <p><strong>验收：</strong>较好一套原始分大约 30，或比第 16 周全套多对 4 题以上。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w29"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w30">
+      <header><span class="week-no">30</span><div><h3>决策模考：考，还是延长</h3><p>2027-05-17 · 过关周</p></div></header>
+      <div class="body">
+        <p>这是报名后仍可改期的最后判断点之一。完整模考。若写作或口语仍在 5.5 及以下，或听读原始分仍低于 26，启动延长模块，并把 7 月考位推迟到 9 月。已经报名且不能改期的，后六周只补最低的那一科，不再平均用力。</p>
+        <ul>
+          <li><strong>周六</strong>听力、阅读。</li>
+          <li><strong>周日</strong>写作、口语。</li>
+          <li><strong>周一至周三</strong>复盘。</li>
+          <li><strong>周四</strong>写下后六周只抓的三个错误类型。</li>
+          <li><strong>周五</strong>若写作没有外部反馈，本周内必须找一次。自估不能作为唯一依据。</li>
+        </ul>
+        <p><strong>进入冲刺的参考线：</strong>听力约 30，阅读约 29，写作和口语不再出现「跑题或说不满」这种 5.5 级问题。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w30"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w31">
+      <header><span class="week-no">31</span><div><h3>模考二：只深挖听力阅读</h3><p>2027-05-24 · 冲刺</p></div></header>
+      <div class="body">
+        <p>全套听读。写作口语本周只维持，不展开新方法。复盘时把错题合成一张「考试日提醒」，不超过 8 条，例如：地图先看起点；填空先看字数；判断题不靠常识。</p>
+        <ul>
+          <li><strong>周六</strong>听读全套。</li>
+          <li><strong>周日</strong>复盘听读，晚上口语 12 分钟。</li>
+          <li><strong>周中</strong>重做错题；写一篇 40 分钟作文保持手感；其余时间回听 Section 4。</li>
+        </ul>
+        <p><strong>验收：</strong>一张不超过 8 条的个人提醒，能背下来。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w31"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w32">
+      <header><span class="week-no">32</span><div><h3>模考三：写作按清单打分</h3><p>2027-05-31 · 冲刺</p></div></header>
+      <div class="body">
+        <p>完整两篇作文，60 分钟。然后用附录的写作自查表逐项打勾。若有外部批改，把批改意见翻译成你能执行的一条动作，例如「每段第一句必须回答题目」，而不是「逻辑有点乱」这种无法执行的话。</p>
+        <ul>
+          <li><strong>周六</strong>写作全真，接着休息，再做听力一套。</li>
+          <li><strong>周日</strong>自查并改一版。口语模拟。</li>
+          <li><strong>周中</strong>用改动作重写一个主体段，限时 12 分钟。阅读一套。</li>
+        </ul>
+        <p><strong>验收：</strong>修改版比第一版少一类重复错误，立场没有在修改中被改丢。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w32"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w33">
+      <header><span class="week-no">33</span><div><h3>口语抗压周</h3><p>2027-06-07 · 冲刺</p></div></header>
+      <div class="body">
+        <p>找人或自己用题目卡追问。规则：答完必有一个 why，再有一个 example，再有一个 what if。答不上就用 I haven't seen that much, but I can imagine... 接住，然后说一个限定条件，不要沉默。</p>
+        <ul>
+          <li><strong>每天</strong>一个完整模拟，控制在 14 分钟。</li>
+          <li><strong>其中两天</strong>把 Part 2 题目换成你没准备过的，强迫使用旧砖。</li>
+          <li><strong>周六</strong>听力或阅读，只做较弱的一科。</li>
+          <li><strong>周日</strong>听三份录音，确认细节没有越讲越空。</li>
+        </ul>
+        <p><strong>验收：</strong>未准备题目也能说到 1 分 30 秒以上，Part 3 没有超过 5 秒的死寂。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w33"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w34">
+      <header><span class="week-no">34</span><div><h3>模考四：四科分两天</h3><p>2027-06-14 · 冲刺</p></div></header>
+      <div class="body">
+        <p>按真实考试的疲劳度来。上午听读，下午写作，晚上不要再学。口语放在第二天上午。成绩若波动半个分数段，以近三次的中位数判断，不要被单次发挥吓到，也不要被单次高分迷惑。</p>
+        <ul>
+          <li><strong>周六</strong>听力、阅读、写作。</li>
+          <li><strong>周日</strong>口语，然后只复盘写作和口语。</li>
+          <li><strong>周中</strong>听读错题重做。不再开始新的单词表。</li>
+        </ul>
+        <p><strong>验收：</strong>四科都有本次分数记录，并写下一句「若考试发生在今天，我最可能失分的一个动作是什么」。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w34"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w35">
+      <header><span class="week-no">35</span><div><h3>只补反复出现的洞</h3><p>2027-06-21 · 冲刺</p></div></header>
+      <div class="body">
+        <p>列出整个课程出现三次以上的错误，最多留 5 个。每天只打其中一个。常见的收尾洞：地图方向、NOT GIVEN、Task 1 没有比较、Task 2 第二问太短、口语 Part 3 用 Part 2 的故事硬撑、冠词、拼写。</p>
+        <ul>
+          <li><strong>周一至周五</strong>每天一个洞，练 75 分钟，加 25 分钟卡片。</li>
+          <li><strong>周六</strong>用一套题里对应的题型做验证，不重做整套也行。</li>
+          <li><strong>周日</strong>轻量口语。提前看考试日清单，证件和路线本周确认。</li>
+        </ul>
+        <p><strong>验收：</strong>5 个洞都有一次「比以前少错」的证据，写在错题本最后一页。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w35"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="w36">
+      <header><span class="week-no">36</span><div><h3>考前周：减量，不改方法</h3><p>2027-06-28 · 考试周</p></div></header>
+      <div class="body">
+        <p>建议考试日放在 7 月 3 日周六或 7 月 10 日周六，视考位而定。考前 72 小时不学新题、不背新词、不改立场模板。睡眠和熟悉路线比再做一套题重要。</p>
+        <ul>
+          <li><strong>周一</strong>轻量听读各半套，只为保持耳朵和眼睛的速度。</li>
+          <li><strong>周二</strong>写一个提纲加一个 overview，不写全文。口语讲一块砖。</li>
+          <li><strong>周三</strong>看个人提醒 8 条，收拾证件。下午之后停止学习。</li>
+          <li><strong>周四</strong>若周五考试，今天完全休息。若周六考试，今天只跟读 10 分钟。</li>
+          <li><strong>考前一天</strong>走到考场或确认交通时间，早睡。不看错题本。</li>
+          <li><strong>考试日</strong>按后文清单执行。</li>
+        </ul>
+        <p><strong>验收：</strong>你能在不翻书的情况下说出自己的四科目标组合、考试当天的交通时间和 8 条个人提醒。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="w36"> 本周完成</label>
+      </div>
+    </article>
+  </section>
+
+  <section class="chapter" id="extend">
+    <h2><span class="idx">拾肆</span>延长八周</h2>
+    <p class="sub">只在第 30 周没有过关时使用。延长模块不平均重学四科，默认写作和口语是原因。若实际是听力或阅读拖后腿，把 E1–E4 换成该科的限时套题与错题回指，保留 E5–E8 的模考节奏。</p>
+    <article class="week" id="e1">
+      <header><span class="week-no">E1</span><div><h3>只修任务回应</h3><p>延长第 1 周</p></div></header>
+      <div class="body">
+        <p>每天拿一道旧题，用 5 分钟写出「题目问了几件事、我的立场一句、每段第一句」。然后只重写每段第一句，不重写全文。第一句若不能单独回答题目，后面写得再流畅也是 6 分以下的任务项。本周写满 6 组段首句。</p>
+        <p><strong>验收：</strong>别人只看你的段首句，能说出这篇文章在回答哪个问题。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="e1"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="e2">
+      <header><span class="week-no">E2</span><div><h3>在自己的句子上修语法</h3><p>延长第 2 周</p></div></header>
+      <div class="body">
+        <p>选三篇旧作文，把每篇的错误句单独抄出，改对，再放回段落读一遍。不看语法书的新章节。请外部读者只帮你圈错误，不要替你重写。你自己改，才形成考试时最后三分钟的检查能力。</p>
+        <p><strong>验收：</strong>三篇里最高频的错误类型，在周末新写的 250 词里减少到不超过 3 处。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="e2"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="e3">
+      <header><span class="week-no">E3</span><div><h3>流利度：把停顿挪到意群边界</h3><p>延长第 3 周</p></div></header>
+      <div class="body">
+        <p>每天 15 分钟跟读，再 15 分钟不看稿重述同一段意思。重述不追求原句。另外每天一个 Part 2。若卡词，用一个更简单的词继续，事后把那个简单词升级进卡片，不要在录音里停下来想高级词。</p>
+        <p><strong>验收：</strong>一份 Part 2 录音里，没有超过 5 秒的沉默。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="e3"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="e4">
+      <header><span class="week-no">E4</span><div><h3>Part 3 的限定与例子</h3><p>延长第 4 周</p></div></header>
+      <div class="body">
+        <p>每天 8 个抽象问题。每个答案强制包含：一个限定（for office workers / in rented flats / in smaller cities）和一个例子。限定语会让 6 分的空话变成 6.5 分的具体讨论。继续使用你的六块生活砖，不要新编一个完美人设。</p>
+        <p><strong>验收：</strong>连续 5 个答案都有限定语，抽查时你自己能指出来。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="e4"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="e5">
+      <header><span class="week-no">E5</span><div><h3>输出日与输入日交替</h3><p>延长第 5 周</p></div></header>
+      <div class="body">
+        <p>周一三五只输出：作文或口语。周二四只输入：听力阅读套题。周六完整写作 60 分钟。周日口语全真加复盘。这样不会再把「我今天听了很多」当成学习完成。</p>
+        <p><strong>验收：</strong>本周有 3 篇写作产出和 4 次口语录音。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="e5"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="e6">
+      <header><span class="week-no">E6</span><div><h3>延长模块第一次模考</h3><p>延长第 6 周</p></div></header>
+      <div class="body">
+        <p>四科全真。与第 30 周对比时只看写作口语有没有从「跑题、说不满、错误密到影响理解」里出来。听读保持即可，不要为了听读再涨 0.5 而挤掉输出复盘。</p>
+        <p><strong>验收：</strong>有与第 30 周并列的分数记录。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="e6"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="e7">
+      <header><span class="week-no">E7</span><div><h3>按模考补三个动作</h3><p>延长第 7 周</p></div></header>
+      <div class="body">
+        <p>只留三个动作，例如：大作文第二问写成完整段、口语每个 Part 3 加例子、小作文 overview 不写数字。每天重复这三个动作。不看新的经验帖。</p>
+        <p><strong>验收：</strong>周末的作文和录音里，这三个动作都能被看见。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="e7"> 本周完成</label>
+      </div>
+    </article>
+    <article class="week" id="e8">
+      <header><span class="week-no">E8</span><div><h3>决定考试日</h3><p>延长第 8 周</p></div></header>
+      <div class="body">
+        <p>再做一次全真。若写作口语仍明显低于 6，继续按 E5 的交替方式滚动两周，不要因为「已经学了很久」就去考。若已经稳定在 6 以上、听读原始分大约 30，可以报名三周以后的考位，并沿用第 36 周的减量方式。</p>
+        <p><strong>验收：</strong>写下考或延考的理由，理由必须引用分数和错误类型，不能只写「我觉得差不多了」。</p>
+        <label class="checkline"><input type="checkbox" data-week-check="e8"> 本周完成</label>
+      </div>
+    </article>
+    <article class="callout note">
+      <h3>全职压缩怎么并周</h3>
+      <p>每周能保证 25 小时以上时，不要另起一套内容。把主课按下面的方式合并，总学习小时仍要接近 500。</p>
+      <ul>
+        <li>第 1–2 周压缩进 1 周，但诊断套题必须保留。</li>
+        <li>第 3–4 周合并，第 5–6 周合并，第 7–8 周合并，第 9–10 周合并。</li>
+        <li>第 11–16 周的听读题型不合并，每天可上下午各做一科。</li>
+        <li>第 17–21 周写作可每周两篇，日历大约省下两周。</li>
+        <li>模考周不合并。模考和复盘若挤在同一天，分数没有意义。</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="chapter" id="mock">
+    <h2><span class="idx">拾伍</span>模考规程</h2>
+    <div class="grid-2">
+      <article class="card">
+        <h3>像考试的部分</h3>
+        <ul>
+          <li>听力只放一遍。纸笔练习就手写答案并给自己 10 分钟誊写；电脑考试练习就边听边打字，没有誊写时间。</li>
+          <li>阅读 60 分钟，三篇一次做完。手机放在另一个房间。</li>
+          <li>写作 60 分钟，手写或打字与你最终的考试形式一致。</li>
+          <li>口语找人当考官最好。一个人练时，题目用卡片先抽，不许先看下一题。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>不许做的事</h3>
+        <ul>
+          <li>边听边暂停。</li>
+          <li>做完立刻看分数发朋友圈，当天不复盘。</li>
+          <li>用中文解析看懂了，就认为自己会了。</li>
+          <li>把模考分数当作官方分。自估写作口语通常偏高 0.5 左右，所以课程才要求至少一次外部反馈。</li>
+        </ul>
+      </article>
+    </div>
+    <h3>复盘记录表</h3>
+    <table>
+      <thead><tr><th>栏目</th><th>写什么</th></tr></thead>
+      <tbody>
+        <tr><td>日期与套题</td><td>书名、Test 编号。同一套不在两周内重做。</td></tr>
+        <tr><td>原始分</td><td>听力、阅读各 /40。写作词数。口语是否说满。</td></tr>
+        <tr><td>错题类型</td><td>每科最多三类。</td></tr>
+        <tr><td>下一周动作</td><td>一个可观察的动作，不写「继续努力」。</td></tr>
+        <tr><td>重做日期</td><td>错题四天后重做的结果。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="chapter" id="books">
+    <h2><span class="idx">拾陆</span>材料与工具</h2>
+    <p>材料够用即可。同时开五套网课，是这个分数段最常见的分心方式。</p>
+    <table>
+      <thead><tr><th>用途</th><th>用什么</th><th>怎么用</th></tr></thead>
+      <tbody>
+        <tr><td>诊断与模考</td><td>剑桥雅思学术类真题，优先 15–19。官网样题用来熟悉电脑考试界面</td><td>16–17 前半程，18–19 后半程。每套配书里自己的分数换算表</td></tr>
+        <tr><td>方法</td><td>官方指南 The Official Cambridge Guide to IELTS，或英国文化协会的免费备考页</td><td>当字典用，按题型回查，不要从头当小说读</td></tr>
+        <tr><td>语法</td><td>Murphy《English Grammar in Use》中级</td><td>只做与你错误类型对应的单元</td></tr>
+        <tr><td>词汇</td><td>自己的语料本 + Anki 或类似间隔重复软件</td><td>卡片来自你读过听过的句子</td></tr>
+        <tr><td>听力输入</td><td>BBC 6 Minute English，剑桥听力原文</td><td>每天 90 秒精听跟读，周末可不加新的长讲座</td></tr>
+        <tr><td>阅读输入</td><td>BBC Future、National Geographic、New Scientist 的单篇</td><td>第 16 周之后用来练速度，不能代替真题</td></tr>
+        <tr><td>口语发音</td><td>剑桥词典的英音发音键，YouGlish 用来看词在句子里的重音</td><td>查你说错或听错的词，不漫无目的地刷</td></tr>
+      </tbody>
+      <caption>真题请使用正版。盗版扫描往往缺页、缺听力或换算表错误，用它做诊断会误导路径选择。</caption>
+    </table>
+    <div class="callout teacher">
+      <h3>电脑考试还是纸笔</h3>
+      <p>两者评分标准相同。你每周有四天以上用电脑写英文、速度能到大约每分钟 25–30 个英文词，就优先电脑考试：耳机通常更清楚，复制修改方便，成绩出来更快。若你打字会严重挤占想内容的注意力，就选纸笔，并且从第 17 周起写作全部手写。口语都是面对考官，不因纸笔或电脑而改变。选定之后，模考形式就不要再换。</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="examday">
+    <h2><span class="idx">拾柒</span>报名与考试日</h2>
+    <div class="grid-2">
+      <article class="card">
+        <h3>报名</h3>
+        <ul>
+          <li>学术类还是培训类，以接收学校或签证要求为准。本讲义按学术类编写。培训类阅读和 Task 1 不同，若你确认只考培训类，阅读文章换成生活与工作文本，Task 1 改练书信，其余听力和口语仍可用。</li>
+          <li>在中国大陆通过教育部教育考试院的雅思报名系统报名，入口以 ielts.org 的中国大陆页面当时显示的为准。</li>
+          <li>证件与考试当天携带的证件必须一致。留学用途时，护照信息与报名信息要核对。</li>
+          <li>热门城市的周六考位会满。按本计划，2027 年 5 月中旬就该选定 7 月的考位。</li>
+          <li>口语可能与笔试同一天，也可能隔一天。请假要按两天来请。</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>考试日清单</h3>
+        <ul>
+          <li>证件、报名号、确认信。提前一晚装好。</li>
+          <li>提前到达。交通按平时的 1.5 倍估。</li>
+          <li>听力一开始先看题，录音里的例子通常不需要你作答，听清指令即可。</li>
+          <li>阅读先涂或先输入容易丢分的题，空题最后猜，不留空白。</li>
+          <li>写作若还剩 5 分钟，优先检查字数、立场和最容易犯的那一种语法，不要再换例子。</li>
+          <li>口语进场先听问题。没听清可以请考官重复，这不算扣分。答完停止，不要追加背好的结尾。</li>
+        </ul>
+      </article>
+    </div>
+    <div class="callout good">
+      <h3>成绩出来之后</h3>
+      <p>若总分 6.5，且听读已经是 7 以上、写作或口语是 6：不要四科重头再学。只延长输出八周，然后复议或重考前，先确认是分数真的偏低，还是任务回应仍有硬伤。复议只在你有理由相信评分明显偏离表现时才考虑，不是一种提分方法。若总分低于 6，回到第 10 周的过关标准，重修地基里没过的那一科。</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="tools">
+    <h2><span class="idx">拾捌</span>两个小工具</h2>
+    <div class="grid-2">
+      <form class="calc" id="diagForm">
+        <h3>诊断路径</h3>
+        <p>填第 1 周的结果。写作口语没有外部评分时，填自估分，并记住它通常偏高。</p>
+        <div class="grid-2">
+          <label class="field">听力原始分 /40<input id="dL" type="number" min="0" max="40" step="1" value="18" required></label>
+          <label class="field">阅读原始分 /40<input id="dR" type="number" min="0" max="40" step="1" value="20" required></label>
+          <label class="field">写作自估<input id="dW" type="number" min="4" max="8" step="0.5" value="5" required></label>
+          <label class="field">口语自估<input id="dS" type="number" min="4" max="8" step="0.5" value="5" required></label>
+        </div>
+        <div class="tools"><button type="submit">给出路径</button></div>
+        <p class="result" id="diagOut">填完后会告诉你走预科、主路，还是压缩地基。</p>
+      </form>
+      <form class="calc" id="bandForm">
+        <h3>总分计算器</h3>
+        <p>用半分规则估算总分，并检查有没有科目低于 6.5。</p>
+        <div class="grid-2">
+          <label class="field">听力<select id="cL" required></select></label>
+          <label class="field">阅读<select id="cR" required></select></label>
+          <label class="field">写作<select id="cW" required></select></label>
+          <label class="field">口语<select id="cS" required></select></label>
+        </div>
+        <div class="tools"><button type="submit">计算</button></div>
+        <p class="result" id="bandOut">选择四科后计算。</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="chapter" id="appendix">
+    <h2><span class="idx">拾玖</span>附录练习</h2>
+    <p>这些题是为本讲义写的，不是真题，用来练动作。真题仍以剑桥书为准。</p>
+
+    <details class="fold">
+      <summary>语法诊断十二题</summary>
+      <div class="exercise">
+        <p>每题改成自然、正确的英文。先自己改，再打开答案。</p>
+        <ol>
+          <li>The policy is new, it may fail.</li>
+          <li>Internet has changed the way we work.</li>
+          <li>There are many information on this website.</li>
+          <li>I have finished the report yesterday.</li>
+          <li>Although the course was expensive, but I enrolled.</li>
+          <li>The number of applicants are rising.</li>
+          <li>This result leads an increase in costs.</li>
+          <li>People should be encourage to use buses.</li>
+          <li>Despite the service is slow, passengers still use it.</li>
+          <li>He suggested to open a small branch.</li>
+          <li>The city invested in parks, libraries and improving roads.</li>
+          <li>If the council built the line earlier, traffic will ease now.</li>
+        </ol>
+        <details class="fold">
+          <summary>参考答案</summary>
+          <ol>
+            <li>The policy is new, so it may fail.</li>
+            <li>The internet has changed the way we work.</li>
+            <li>There is a lot of information on this website.</li>
+            <li>I finished the report yesterday.</li>
+            <li>Although the course was expensive, I enrolled.</li>
+            <li>The number of applicants is rising.</li>
+            <li>This result leads to an increase in costs.</li>
+            <li>People should be encouraged to use buses.</li>
+            <li>Despite the slow service, passengers still use it.</li>
+            <li>He suggested opening a small branch.</li>
+            <li>The city invested in parks, libraries and roads. 或 The city invested in parks, libraries and road improvements.</li>
+            <li>若表示与过去事实相反：If the council had built the line earlier, traffic would be lighter now. 若只是将来的真实条件，原句的时间逻辑不成立，应改写。</li>
+          </ol>
+        </details>
+      </div>
+    </details>
+
+    <details class="fold">
+      <summary>判断题短文：海尔市的图书馆</summary>
+      <div class="exercise">
+        <p>Hale City Council closed three branch libraries in March 2019 and, two months later, opened a larger central library beside the main station. It also launched a website that lets residents renew books and join discussion groups. Researchers at Hale University followed 420 registered users for twelve months.</p>
+        <p>Total loans rose by about a quarter during that year. Most of the increase came from e-books rather than printed books. People who visited the central building were, on average, younger than those who had used the old branches. The report did not compare Hale with other cities.</p>
+        <p>The website cut queues at the loans desk. Residents in the northern district, where two branches had closed, told researchers that the journey to the station took too long. The council stated that buses ran every fifteen minutes. The number of Saturday children's story sessions stayed the same, because they were moved rather than cancelled. The researchers recommended a small reading room in the northern district. When the report was published, the council had not said whether it would provide one.</p>
+        <ol>
+          <li>The central library opened in the same month that the branch libraries closed.</li>
+          <li>Residents can renew books on the website.</li>
+          <li>Printed books caused most of the growth in loans.</li>
+          <li>The new library's visitors were younger, on average, than branch-library users had been.</li>
+          <li>Hale's increase in loans was greater than the increase in neighbouring cities.</li>
+          <li>Children's story sessions ended after the move.</li>
+          <li>The council agreed to open a reading room in the northern district.</li>
+        </ol>
+        <details class="fold">
+          <summary>答案与理由</summary>
+          <ol>
+            <li><strong>FALSE。</strong>原文是三月关闭，两个月后开馆，不是同一个月。</li>
+            <li><strong>TRUE。</strong>网站可以 renew books，与题目一致。</li>
+            <li><strong>FALSE。</strong>增长主要来自电子书，不是纸质书。</li>
+            <li><strong>TRUE。</strong>中央馆访客平均更年轻。</li>
+            <li><strong>NOT GIVEN。</strong>报告没有和其他城市比较。你若觉得「四分之一已经很多」，那是常识，不是原文。</li>
+            <li><strong>FALSE。</strong>活动被搬走了，数量不变，不是结束。</li>
+            <li><strong>NOT GIVEN。</strong>研究者建议了，议会尚未表态。建议不等于同意。</li>
+          </ol>
+        </details>
+      </div>
+    </details>
+
+    <details class="fold">
+      <summary>写作题库 W-01 至 W-12</summary>
+      <div class="exercise">
+        <ol>
+          <li><strong>W-01</strong> Some people believe that adults over 25 should receive financial support from employers for part-time study. To what extent do you agree or disagree?</li>
+          <li><strong>W-02</strong> Many employees now learn job skills from short online courses instead of long college programmes. Do the advantages of this trend outweigh the disadvantages?</li>
+          <li><strong>W-03</strong> Some people think cities should invest in public libraries. Others think the money should go to high-speed internet access. Discuss both views and give your own opinion.</li>
+          <li><strong>W-04</strong> In many workplaces, staff are expected to answer messages after office hours. What problems does this cause, and what solutions can you suggest?</li>
+          <li><strong>W-05</strong> Some people say that a gap of several years makes it too difficult to return to formal education. To what extent do you agree or disagree?</li>
+          <li><strong>W-06</strong> The number of adults who study a foreign language for career reasons is increasing. Why is this happening, and is it a positive or negative development?</li>
+          <li><strong>W-07</strong> Some people think companies should promote staff according to their performance, while others think length of service should matter more. Discuss both views and give your own opinion.</li>
+          <li><strong>W-08</strong> Governments should provide free public transport in order to reduce traffic and pollution. To what extent do you agree or disagree?</li>
+          <li><strong>W-09</strong> More people are choosing to live alone in large cities. Do the advantages of this outweigh the disadvantages?</li>
+          <li><strong>W-10</strong> Many historic neighbourhoods are being replaced by high-rise apartments. What are the causes of this, and what effects does it have on residents?</li>
+          <li><strong>W-11</strong> Some people think that the best way to learn about life is through work experience. Others think academic study is more useful. Discuss both views and give your own opinion.</li>
+          <li><strong>W-12</strong> In some countries, people spend fewer hours cooking at home than in the past. Why has this change occurred, and what problems might it cause?</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="fold">
+      <summary>口语 Part 2 题目，用来重组旧砖</summary>
+      <div class="exercise">
+        <ul>
+          <li>Describe a skill you learned as an adult.</li>
+          <li>Describe a website you use for work or study.</li>
+          <li>Describe a person who gave you useful advice.</li>
+          <li>Describe a time when you had to change your plan.</li>
+          <li>Describe a city you would like to work in.</li>
+          <li>Describe an object you have kept for a long time.</li>
+          <li>Describe a habit that improved your health.</li>
+          <li>Describe a busy period in your life.</li>
+          <li>Describe a building you often go to.</li>
+          <li>Describe a difficult decision you made.</li>
+          <li>Describe a piece of news that interested you.</li>
+          <li>Describe a journey that did not go as expected.</li>
+          <li>Describe a rule at work or school that you think is useful.</li>
+          <li>Describe a time you helped a colleague or classmate.</li>
+          <li>Describe a quiet place in your city.</li>
+          <li>Describe something you saved money to buy.</li>
+          <li>Describe a change in the area where you live.</li>
+          <li>Describe a book or article that influenced your work.</li>
+        </ul>
+        <p>准备一分钟时只写四个词。讲的时候必须出现一个时间、一个具体物件或地点、一个感受的原因。</p>
+      </div>
+    </details>
+
+    <details class="fold">
+      <summary>写作自查表</summary>
+      <div class="exercise">
+        <p>Task 1</p>
+        <ul>
+          <li>词数至少 150，建议不超过 190。</li>
+          <li>引言改写了题目，没有加入图中没有的原因。</li>
+          <li>有单独的 overview，里面是总趋势或总对比。</li>
+          <li>主体按组别，而不是按每一个年份报数。</li>
+          <li>至少有四个不同的趋势或比较表达。</li>
+          <li>时态与图上的时间一致，单位正确。</li>
+        </ul>
+        <p>Task 2</p>
+        <ul>
+          <li>词数至少 250。</li>
+          <li>题目里的每个问题都有段落。</li>
+          <li>立场从头到尾一致，段首句能单独看出在回答什么。</li>
+          <li>每个主要观点都有机制，不只是重复观点。</li>
+          <li>例子里有具体主体，不全是 many people。</li>
+          <li>连接不只靠 firstly 和 secondly，有 this / such + 名词。</li>
+          <li>弱词被替换了一部分。复合句里至少四句是正确的。</li>
+          <li>最后三分钟只查你自己的前三类语法错误。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="fold">
+      <summary>口语自查表</summary>
+      <div class="exercise">
+        <ul>
+          <li>Part 1 是否在 20–40 秒内，并且真的回答了问句。</li>
+          <li>Part 2 是否达到 1 分 40 秒，是否有一个展开的细节。</li>
+          <li>Part 3 是否先回答抽象问题，而不是把 Part 2 再讲一遍。</li>
+          <li>有没有连续 5 秒以上的沉默。</li>
+          <li>有没有一处限定语，例如 in small companies 或 for people who rent。</li>
+          <li>听第二遍时，只数语法错误和词尾吞音，不评价自己的表情。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="fold">
+      <summary>一份示范日：在职的周二</summary>
+      <div class="exercise">
+        <p>以第 13 周周二为例，给你看 15 小时的周是怎么落在一天里的，避免计划只存在于表格。</p>
+        <ul>
+          <li>7:40 通勤。复习到期卡片 20 分钟。新卡 0 张，因为昨天新卡还没全部会说。</li>
+          <li>12:20 午饭后。跟读昨天错题里的 4 个句子，录音 15 分钟。</li>
+          <li>19:30 主课。只复盘周一那篇的判断题。每道错题写成一条规则。19:50 不看笔记重做这些题。20:20 把仍然含糊的两题放回原文，标出比较词和范围词。20:45 结束，不追加新文章。</li>
+          <li>21:00 把两条新规则抄进错题本。睡觉前不看视频解析。</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <footer class="colophon">
+    <p>七分之路 · 为 26 岁、大二英语六级 429 分的学习者编写的学术类雅思课程。六级与雅思没有官方换算；文中的原始分区间是多数试卷上的常见手感，单套真题以该书换算表为准。进度勾选保存在这台浏览器的本地存储里，清除网站数据就会消失。</p>
+  </footer>
+
+</main>
+</div>
+<script>
+  const KEY = "ielts70-plan-v1";
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || {}; }
+    catch (e) { return {}; }
+  }
+  function saveState(state) { localStorage.setItem(KEY, JSON.stringify(state)); }
+  function refresh() {
+    const state = loadState();
+    const boxes = document.querySelectorAll("[data-week-check]");
+    let done = 0;
+    let total = 0;
+    boxes.forEach((box) => {
+      const id = box.dataset.weekCheck || "";
+      const on = Boolean(state[box.dataset.weekCheck]);
+      box.checked = on;
+      if (!/^w\d+$/.test(id)) return;
+      total += 1;
+      if (on) done += 1;
+    });
+    if (!total) total = 36;
+    const label = document.getElementById("doneLabel");
+    const bar = document.getElementById("doneBar");
+    if (label) label.textContent = done + " / " + total + " 主课周";
+    if (bar) bar.style.width = (done / total * 100) + "%";
+    const dock = document.querySelector(".bar");
+    if (dock) {
+      dock.setAttribute("aria-valuemax", String(total));
+      dock.setAttribute("aria-valuenow", String(done));
+    }
+  }
+  document.addEventListener("change", (event) => {
+    const box = event.target;
+    if (!box.matches || !box.matches("[data-week-check]")) return;
+    const state = loadState();
+    state[box.dataset.weekCheck] = box.checked;
+    saveState(state);
+    refresh();
+  });
+  document.addEventListener("click", (event) => {
+    if (event.target.id === "expandAll") {
+      document.querySelectorAll("details.fold").forEach((d) => d.open = true);
+    }
+    if (event.target.id === "collapseAll") {
+      document.querySelectorAll("details.fold").forEach((d) => d.open = false);
+    }
+    if (event.target.id === "printBtn") window.print();
+    if (event.target.id === "resetBtn") {
+      localStorage.removeItem(KEY);
+      refresh();
+    }
+  });
+  function roundBand(avg) {
+    const doubled = avg * 2;
+    const nearest = Math.round(doubled);
+    return nearest / 2;
+  }
+  function bandSelect(id, selected) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    for (let b = 4; b <= 9.01; b += 0.5) {
+      const opt = document.createElement("option");
+      opt.value = b.toFixed(1);
+      opt.textContent = b.toFixed(1);
+      el.appendChild(opt);
+    }
+    el.value = selected;
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    bandSelect("cL", "7.5");
+    bandSelect("cR", "7.0");
+    bandSelect("cW", "6.5");
+    bandSelect("cS", "6.5");
+    const form = document.getElementById("bandForm");
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const scores = ["cL","cR","cW","cS"].map((id) => Number(document.getElementById(id).value));
+        const avg = scores.reduce((a,b)=>a+b,0) / 4;
+        const overall = roundBand(avg);
+        const min = Math.min(...scores);
+        const names = ["听力","阅读","写作","口语"];
+        const weak = names.filter((_,i) => scores[i] < 6.5);
+        const out = document.getElementById("bandOut");
+        let msg = "平均 " + avg.toFixed(3) + "，总分按半分规则约为 " + overall.toFixed(1) + "。";
+        if (overall >= 7 && min >= 6.5) msg += " 这组分数达到本课程的录取安全线。";
+        else if (overall >= 7) msg += " 总分到了 7，但 " + weak.join("、") + " 低于 6.5。若目标学校卡单科，这组还不够。";
+        else msg += " 尚未到总分 7.0。优先补最低的一项，而不是把已经 7.5 的听力再往上抬。";
+        out.textContent = msg;
+      });
+    }
+    const diag = document.getElementById("diagForm");
+    if (diag) {
+      diag.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const L = Number(document.getElementById("dL").value);
+        const R = Number(document.getElementById("dR").value);
+        const W = Number(document.getElementById("dW").value);
+        const S = Number(document.getElementById("dS").value);
+        const out = document.getElementById("diagOut");
+        const weakLR = L < 16 || R < 15;
+        const weakProd = W <= 5 || S <= 5;
+        let msg = "";
+        if (weakLR) msg = "听力和阅读的原始分还在 5 分线附近或以下。先完成预科六周，再进入第 3 周。考试计划后移两个月。";
+        else if (weakProd && L >= 23 && R >= 23) msg = "输入已经接近 6 分，输出偏弱。主课按周进行，但从第 3 周起把周六全部给写作，周日全部给口语，听读维持复习量即可。";
+        else if (L >= 30 && R >= 30 && W >= 6 && S >= 6) msg = "起点高于本讲义的临时假设。可以每两周合并一周的地基任务，仍不要跳过写作评分训练和口语录音。";
+        else msg = "与主路假设接近。从第 3 周按顺序上课。第 10 周前不要做完整三篇阅读的速度练习，先把判断题和 Section 1–2 做稳。";
+        if (Number.isNaN(L) || Number.isNaN(R) || Number.isNaN(W) || Number.isNaN(S)) msg = "请填完四项。写作和口语若没有外部评分，先填你按文中清单自估的分数，并在数字后心里标注「未核实」。";
+        out.textContent = msg;
+      });
+    }
+    refresh();
+  });
+</script>
+</body>
+</html>
