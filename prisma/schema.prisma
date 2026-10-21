@@ -1,0 +1,250 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  points       Int      @default(0)
+  isAdmin      Boolean  @default(false)
+  bio          String   @default("")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  sessions       Session[]
+  spots          ParkingSpot[]
+  bookingsRenter Booking[]                 @relation("RenterBookings")
+  bookingsOwner  Booking[]                 @relation("OwnerBookings")
+  reports        ParkingReport[]
+  pointEntries   PointEntry[]
+  messages       Message[]
+  participations ConversationParticipant[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  ip        String
+  userAgent String   @default("")
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model EmailCode {
+  id         String    @id @default(cuid())
+  email      String
+  purpose    String
+  codeHash   String
+  expiresAt  DateTime
+  consumedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([email, purpose])
+}
+
+model ParkingLot {
+  id               String   @id @default(cuid())
+  name             String
+  city             String
+  district         String   @default("")
+  address          String
+  lat              Float
+  lng              Float
+  hourlyPrice      Int?
+  firstHourPrice   Int?
+  dailyCap         Int?
+  monthlyPrice     Int?
+  freeMinutes      Int      @default(0)
+  feeNote          String   @default("")
+  allowVisitor     String   @default("unknown")
+  totalSpots       Int      @default(0)
+  fixedSpots       Int      @default(0)
+  flexibleSpots    Int      @default(0)
+  availableSpots   Int      @default(0)
+  availabilityMode String   @default("manual")
+  openHours        String   @default("全天")
+  lotType          String   @default("underground")
+  evChargers       Int      @default(0)
+  heightLimitM     Float?
+  paymentMethods   String   @default("")
+  phone            String   @default("")
+  reservable       Boolean  @default(false)
+  nightOpen        Boolean  @default(true)
+  accessibleSpots  Int      @default(0)
+  rules            String   @default("")
+  operatorName     String   @default("")
+  source           String   @default("manual")
+  externalId       String   @default("")
+  status           String   @default("published")
+  verified         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  reports ParkingReport[]
+
+  @@index([city, status])
+  @@index([source, externalId])
+}
+
+model ParkingReport {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lotId         String?
+  lot           ParkingLot? @relation(fields: [lotId], references: [id], onDelete: SetNull)
+  payload       String
+  status        String    @default("pending")
+  reviewNote    String    @default("")
+  pointsAwarded Int       @default(0)
+  createdAt     DateTime  @default(now())
+  reviewedAt    DateTime?
+
+  @@index([status])
+  @@index([userId])
+}
+
+model ParkingSpot {
+  id           String   @id @default(cuid())
+  ownerId      String
+  owner        User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  title        String
+  description  String   @default("")
+  city         String
+  district     String   @default("")
+  community    String   @default("")
+  address      String
+  spotCode     String   @default("")
+  lat          Float
+  lng          Float
+  spotType     String   @default("underground")
+  vehicleLimit String   @default("轿车")
+  hasCharger   Boolean  @default(false)
+  accessGuide  String   @default("")
+  status       String   @default("active")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  listings Listing[]
+  bookings Booking[]
+
+  @@index([city, status])
+  @@index([ownerId])
+}
+
+model Listing {
+  id           String      @id @default(cuid())
+  spotId       String
+  spot         ParkingSpot @relation(fields: [spotId], references: [id], onDelete: Cascade)
+  mode         String
+  priceCents   Int
+  windowStart  String      @default("")
+  windowEnd    String      @default("")
+  startAt      DateTime?
+  endAt        DateTime?
+  holidayName  String      @default("")
+  note         String      @default("")
+  status       String      @default("active")
+  createdAt    DateTime    @default(now())
+
+  bookings Booking[]
+
+  @@index([spotId, status])
+}
+
+model Booking {
+  id               String      @id @default(cuid())
+  listingId        String
+  listing          Listing     @relation(fields: [listingId], references: [id])
+  spotId           String
+  spot             ParkingSpot @relation(fields: [spotId], references: [id])
+  renterId         String
+  renter           User        @relation("RenterBookings", fields: [renterId], references: [id])
+  ownerId          String
+  owner            User        @relation("OwnerBookings", fields: [ownerId], references: [id])
+  startAt          DateTime
+  endAt            DateTime
+  intervals        String
+  label            String
+  rentCents        Int
+  pointsUsed       Int         @default(0)
+  pointsValueCents Int         @default(0)
+  cashCents        Int
+  platformFeeCents Int
+  ownerPayoutCents Int
+  subsidyCents     Int         @default(0)
+  status           String      @default("confirmed")
+  createdAt        DateTime    @default(now())
+
+  conversation Conversation?
+
+  @@index([renterId, createdAt])
+  @@index([ownerId, createdAt])
+  @@index([spotId, status])
+}
+
+model PointEntry {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  delta     Int
+  reason    String
+  refId     String   @default("")
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model Conversation {
+  id        String   @id @default(cuid())
+  bookingId String?  @unique
+  booking   Booking? @relation(fields: [bookingId], references: [id])
+  spotId    String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  participants ConversationParticipant[]
+  messages     Message[]
+}
+
+model ConversationParticipant {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  userId         String
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([conversationId, userId])
+  @@index([userId])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String
+  sender         User         @relation(fields: [senderId], references: [id])
+  body           String
+  createdAt      DateTime     @default(now())
+
+  @@index([conversationId, createdAt])
+}
+
+model AdBanner {
+  id        String  @id @default(cuid())
+  title     String
+  subtitle  String  @default("")
+  href      String  @default("")
+  active    Boolean @default(true)
+  placement String  @default("home")
+}
